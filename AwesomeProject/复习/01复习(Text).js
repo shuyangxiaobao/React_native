@@ -20,7 +20,9 @@ import {
 
 type Props = {};
 var Dimensions = require('Dimensions');
-var width = Dimensions.get('window').width;
+var screenWidth = Dimensions.get('window').width;
+var screenHeight = Dimensions.get('window').height;
+
 export default class Text1 extends Component<Props> {
 
     constructor(props) 
@@ -35,62 +37,135 @@ export default class Text1 extends Component<Props> {
     render() {
         return (
         <View style={styles.container}>
-            <Text style={styles.oneText}>
 
-                1111
+
+<View style={styles.backViewStyle}>
+
+        <Text style={styles.leftStyle}
+        // onPress={()=>{this.textClick("左边")}}
+
+        accessibilityHint={"235"}
+
+        accessibilityLabel={"hahha"}
+
+        accessible={true}
+        
+        >
+        左边
+        </Text>
+
+
+        <Text style={styles.HomeTextStyle}
+            onPress={()=>{this.textClick("Home")}}
+            // onLongPress={()=>{this.textClick("Home 长按")}}
+            selectable={false} // true:可以长按复制  false 无法复制
+            onLayout={()=>{this.onLayout()}}
+
+        >
+            Home
+        </Text>
+
+        <Text style={styles.rightStyle}
+        onPress={()=>{this.textClick("右边")}}
+        >
+        右边
+        </Text>
+
+
+</View>
+
+<Text style={styles.oneText}
+            onPress = {()=>{this.textClick("😄")}}
+            hidden={true}
+            >
+                消息1
             </Text>
 
-            <Text style={styles.twoText}>
-                2222
-            </Text>
 
-            <Text style={styles.oneText}>
 
-33333333333333333333333333333333
-</Text>
-<Text style={styles.twoText}>
-
-44444444444444444444444444444444
-</Text>
-
-<Text style={styles.oneText}>
-
-555555
-</Text>
-
-<Text style={styles.twoText } numberOfLines={2}>
-
-66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
-</Text>
   
         </View>
     );
     }
+    textClick(str){
+        alert(str.toString());
+    }
+
+    onLayout(){
+        alert("onLayout");
+    }
+
+
+
 }
 
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:"#dddddd",
-        flex:1,
-        alignItems:'flex-end',
-        justifyContent:"flex-start",
+        backgroundColor:"#ffffff",
+        width:"100%",
+        height:"100%",
+        
+        // flex:1,
+        // justifyContent:"center",
         flexDirection:"row",
-        // flexWrap:"wrap-reverse"
-    },
-    oneText:{
-        color:"#ffffff",
-        paddingTop:30,
-        backgroundColor:"#ff0000"
-        
-    },
-    twoText:{
-        color:"#ffffff",
-        paddingTop:30,
-        paddingLeft:0,
-        backgroundColor:"#00ff00"
+        // flexWrap:"wrap",
+        // alignItems:'flex-start',
 
-        
+    },
+    // Home
+    HomeTextStyle:{
+        // paddingTop:10,
+        // paddingLeft:35,
+        fontSize:25,
+        color:"#ffffff",
+        position:"absolute",
+        top:20,
+        height:44,
+        lineHeight:44,
+        // fontFamily:'sans-serif'
+    },
+    // 导航栏背景图
+    backViewStyle:{
+        position:"relative",
+        left:0,
+        top:0,
+        right:0,
+        height:64,
+        width:screenWidth,
+        backgroundColor:"#21212B",
+               // flex:1,
+        justifyContent:"center",
+        flexDirection:"row",
+        flexWrap:"wrap",
+        alignItems:'flex-start',
+    },
+    // 左边文字
+    leftStyle:{
+      color:"#ffffff",  
+      fontSize:20,
+      position:"absolute",
+      top:20,
+      left:0,
+      width:60,
+      height:44,
+      lineHeight:44,
+    //   backgroundColor:'yellow',
+      textAlign:"center",
+
+    },
+    // 右边文字
+    rightStyle:{
+        color:"#ffffff",  
+        fontSize:20,
+        position:"absolute",
+        top:20,
+        right:0,
+        width:60,
+        height:44,
+        lineHeight:44,
+        // backgroundColor:'orange',
+        textAlign:"center",
     }
 
 })

@@ -15,7 +15,9 @@ import {Platform,
 } from 'react-native';
 
 import FuxiDemo1 from "./复习/01复习(Text)"
+import FuxiDemo2 from "./复习/02复习(Image)"
 
+import FuxiDemo3 from "./复习/03复习(Textinput)"
 
 import Text1 from "./Common/1.Text1"
 import Demo2 from "./Common/2.Image2"
@@ -97,12 +99,14 @@ export default class App extends Component < Props > {
     render() {
         return (
             // <FuxiDemo1/>
+        //    <FuxiDemo2/>
+        <FuxiDemo3/>
 
 
 
 
 
-            <Text1/>
+            // <Text1/>
             // <Image2/>
          
             // <TouchableOpacity4/>

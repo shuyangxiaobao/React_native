@@ -14,8 +14,6 @@ import {Platform,
     Image,
 } from 'react-native';
 
-
-
 type Props = {};
 var Dimensions = require('Dimensions');
 var width = Dimensions.get('window').width;

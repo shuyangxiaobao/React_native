@@ -19,7 +19,9 @@ import {
 
 type Props = {};
 var Dimensions = require('Dimensions');
-var width = Dimensions.get('window').width;
+var SCREENWIDTH = Dimensions.get('window').width;
+var SCREENHEIGHT = Dimensions.get('window').height;
+
 export default class Text1 extends Component<Props> {
 
     constructor(props) 

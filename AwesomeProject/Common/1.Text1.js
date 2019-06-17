@@ -175,3 +175,5 @@ const stylesxlp = StyleSheet.create({
 
 // flexWrap : wrap  nowrap(换行，第一行在上方) wrap-reverse(换行，第一行在下方)
 
+// textAlign:["auto","left","right","center","justify"]
+
