@@ -13,10 +13,13 @@ export default class ScrollView6 extends Component{
         return (
             <View style={styles.container}>
                 <ScrollView
-                horizontal={true}
-                showsHorizontalScrollIndicator={true}
-                showsVerticalScrollIndicator={true}
-                pagingEnabled={true}
+                horizontal={true} // true 水平， false 竖直
+                showsHorizontalScrollIndicator={true}//显示水平滚动条
+                showsVerticalScrollIndicator={true} //显示垂直滚动条
+                pagingEnabled={true} //分页
+                keyboardDismissMode={"on-drag"}
+
+
                 style={styles.scrollViewStle}> 
                   {this.renderChildView()}  
                 </ScrollView>

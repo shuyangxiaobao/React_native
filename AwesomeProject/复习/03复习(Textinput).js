@@ -34,6 +34,9 @@ export default class Text1 extends Component<Props> {
         this.state = 
         {
             TextInputContent:"我是默认文字",
+            TextInputContentWidth:SCREENWIDTH-200,
+            Color:"#ff0000",
+            event:"",
         };
     }
 
@@ -43,6 +46,7 @@ export default class Text1 extends Component<Props> {
 
             <TextInput
             style={styles.onePutStyle}
+            width={this.state.TextInputContentWidth}
             placeholder={"124"}
             autoComplete={"charers"}
             caretHidden={false}
@@ -70,9 +74,13 @@ export default class Text1 extends Component<Props> {
 
             defaultValue={this.state.TextInputContent}
 
+            onBlur={()=>{this.onBlur("1243")}}
+
+            onChange={(value)=>this.change(value)}
+            onContentSizeChange={(event)=>{this.contentSizeChange(event)}}
 
 
-
+onKeyPress={(event)=>{this.onKeyPress(event)}}
             
 
 
@@ -87,7 +95,7 @@ export default class Text1 extends Component<Props> {
             style={styles.TextStyle}
             onPress={()=>{this.click()}}
             >
-                56789
+                动态改变宽度
             </Text>
 
 
@@ -97,16 +105,38 @@ export default class Text1 extends Component<Props> {
 
     click(value){
         // alert(this.state.TextInputContent);
-        // this.setState({
-        //     TextInputContent:"value"+
-        // }) 
-        alert(this.state.TextInputContent);
+
+        this.setState({
+            TextInputContentWidth:this.state.TextInputContentWidth + 10,
+        }) 
+        alert(this.state.event);
+        console.log(this.state.event);
+
     }
 
     changeText(value){
        this.setState({
            TextInputContent:value
        }) 
+    }
+
+    onBlur(value){
+        // alert(value)
+    }
+
+    change(){
+        // alert("change")
+    }
+
+    contentSizeChange(event){
+        console.log("width:" + event.nativeEvent.contentSize.width.toString()+"\n" +"height:" + event.nativeEvent.contentSize.height.toString()+ "\n"
+        // +"width:" + event.targetInst.memoizedProps.defaultValue
+        );
+        console.log(event._targetInst.memoizedProps.width);
+    }
+
+    onKeyPress(event){
+        this.setState({event:event});
     }
 
 
@@ -122,7 +152,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
     },
     onePutStyle:{
-        backgroundColor:"#eeeeee",
+        backgroundColor:"#567890",
         position:"relative",
         top:20,
         left:20,

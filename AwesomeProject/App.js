@@ -12,12 +12,31 @@ import {Platform,
     Text, 
     View,
     AlertIOS,
+    AppRegistry,
 } from 'react-native';
 
 import FuxiDemo1 from "./复习/01复习(Text)"
 import FuxiDemo2 from "./复习/02复习(Image)"
 
 import FuxiDemo3 from "./复习/03复习(Textinput)"
+import FuxiDemo4 from "./复习/04复习(TouchableOpacity)"
+import FuxiDemo5 from "./复习/05复习(生命周期)"
+import FuxiDemo6 from "./复习/06复习(ScrollView)"
+import FuxiDemo7 from "./复习/07复习(定时器)"
+
+import XinUI1 from "./第三方UI组件/(001)React-Native-Elements/001Avatar";
+
+import XinUI2 from "./第三方UI组件/(001)React-Native-Elements/002Badge";
+
+import XinUI3 from "./第三方UI组件/(001)React-Native-Elements/003Button";
+
+import XinUI4 from "./第三方UI组件/(001)React-Native-Elements/004ButtonGroup";
+import XinUI5 from "./第三方UI组件/(001)React-Native-Elements/005Card";
+
+import RiLi from  "./第三方UI组件/(002)日历react-native-calendars /001(日历控件)"
+
+
+
 
 import Text1 from "./Common/1.Text1"
 import Demo2 from "./Common/2.Image2"
@@ -100,9 +119,20 @@ export default class App extends Component < Props > {
         return (
             // <FuxiDemo1/>
         //    <FuxiDemo2/>
-        <FuxiDemo3/>
+        // <FuxiDemo3/>
+        // <FuxiDemo4/>
 
+        // <FuxiDemo5/>
+        // <FuxiDemo6/>
+        // <FuxiDemo7/>
 
+        // <XinUI1/>
+
+        // <XinUI2/>
+        // <XinUI3/>
+        // <XinUI4/>
+        // <XinUI5/>
+        <RiLi/>
 
 
 

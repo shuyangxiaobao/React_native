@@ -151,6 +151,9 @@ export default class TextInput3 extends Component<Props> {
 
     contentSizeChange(event){
         console.log("width:" + event.nativeEvent.contentSize.width.toString()+"\n" +"height:" + event.nativeEvent.contentSize.height.toString());
+
+        console.log(event._targetInst.memoizedProps.width);
+
     }
 
     endEditing(value){
