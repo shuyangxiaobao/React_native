@@ -10,10 +10,10 @@ import {
     StyleSheet,
     Text,
     View,
-    TabBarIOS,
-} from 'react-native';
+    TabBarIOS
+} from "react-native"
 
-export default class HKTabBar extends Component {
+export default class HKwTabBar extends Component {
 
     constructor(pros){
         super(pros);
@@ -25,83 +25,28 @@ export default class HKTabBar extends Component {
 
     render() {
         return (
-        <View style={styles.container}>
-            {/*头部*/}
-            <View style={{alignItems:"center",marginTop:20}}>
-                <Text>TabBar练习</Text>
-            </View>
-            {/*选项卡*/}
-            <TabBarIOS
-            // default black
-                barStyle={"black"}
-                barTintColor='white'  //tabbar 背景颜色
-                tintColor='red'   //选中时item的颜色
-                itemPositioning={"fill"}  //auto center fill  
-                translucent={false}  //
-                style={styles.tabBarIOSStyle}
+<View style={styles.container}>
+    <TabBarIOS>
 
-                unselectedItemTintColor={"yellow"} //未选中时item的颜色
-            >
-                {/*第一个*/}
-                <TabBarIOS.Item
-                    // systemIcon="contacts"
-                    title="首页1"
-                    badge="3"
-                    selected={this.state.selectedTabBarItem == 'home'}  //是否选中
-                    icon={require('./Source/img/icon3.png')}
+    <TabBarIOS.Item
+        systemIcon="history"  // 系统图标(history)
+    >
+    </TabBarIOS.Item>
 
-                    badgeColor={"orange"}   //小红点颜色
+    </TabBarIOS>
 
-                    selectedIcon={require('./Source/img/icon.png')}  //选中时的图标
-                    onPress = {()=>{this.setState({selectedTabBarItem:'home'})}}
-                >
-                <View style={[styles.commonViewStyle,{backgroundColor:'red'}]}>
-                    <Text>首页2</Text>
-                </View>
-                </TabBarIOS.Item>
-                {/*第二个*/}
-                <TabBarIOS.Item
-                    systemIcon="bookmarks"
-                    selected={this.state.selectedTabBarItem == 'second'}
-                    onPress = {()=>{this.setState({selectedTabBarItem:'second'})}}
-                >
-                <View style={[styles.commonViewStyle,{backgroundColor:'green'}]}>
-                    <Text>第二页</Text>
-                </View>
-                </TabBarIOS.Item>
-                {/*第三个*/}
-                <TabBarIOS.Item
-                    systemIcon="downloads"
-                    selected={this.state.selectedTabBarItem == 'three'}
-                    onPress = {()=>{this.setState({selectedTabBarItem:'three'})}}
-                >
-                <View style={[styles.commonViewStyle,{backgroundColor:'blue'}]}>
-                    <Text>第三个</Text>
-                </View>
-                </TabBarIOS.Item>
-                {/*第四个*/}
-                <TabBarIOS.Item
-                    systemIcon="search"
-                    selected={this.state.selectedTabBarItem == 'four'}
-                    onPress = {()=>{this.setState({selectedTabBarItem:'four'})}}
-                >
-                <View style={[styles.commonViewStyle,{backgroundColor:'white'}]}>
-                    <Text>第四个</Text>
-                </View>
-                </TabBarIOS.Item>
+</View>
 
-            </TabBarIOS>
-
-
-        </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
+        // // flex: 1,
+        // backgroundColor: '#F5FCFF',
+        // width:100,
+        // height:200,
     },
     commonViewStyle:{
         flex:1,
@@ -110,5 +55,6 @@ const styles = StyleSheet.create({
     },
     tabBarIOSStyle:{
         height:300,
+        width:300,
     }
 });

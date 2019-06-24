@@ -42,7 +42,7 @@ export default class NavDemo extends Component {
 
         // 配置场景
                 configureScene={()=>
-                    Navigator.SceneConfigs.VerticalUpSwipeJump
+                    Navigator.SceneConfigs.HorizontalSwipeJump
                 }
                     // Navigator.SceneConfigs.PushFromRight (默认)
                     // Navigator.SceneConfigs.FloatFromRight

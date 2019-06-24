@@ -1,0 +1,38 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'AwesomeProject' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'AFNetworking'
+  pod 'Masonry'
+  pod 'SDWebImage'
+
+
+
+  # Pods for AwesomeProject
+
+  target 'AwesomeProject-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'AwesomeProjectTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'AwesomeProject-tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for AwesomeProject-tvOS
+
+ # target 'AwesomeProject-tvOSTests' do
+  #  inherit! :search_paths
+    # Pods for testing
+  #end
+
+end

@@ -59,6 +59,7 @@ export default class HKMain extends React.Component {
             tabBarPosition="bottom"
             //切换动画效果
             scrollWithoutAnimation={false}
+            styles
             //常用属性
 
             // :切换界面的时候会调用该方法，

@@ -23,6 +23,15 @@ import FuxiDemo4 from "./复习/04复习(TouchableOpacity)"
 import FuxiDemo5 from "./复习/05复习(生命周期)"
 import FuxiDemo6 from "./复习/06复习(ScrollView)"
 import FuxiDemo7 from "./复习/07复习(定时器)"
+import FuxiDemo8 from "./复习/08复习(Switch)"
+import FuxiDemo9 from "./复习/09复习(ActivityIndicator)"
+import FuxiDemo10 from "./复习/10复习(Button)"
+import FuxiDemo11 from "./复习/11复习(DatePickerIOS日期选择)"
+import FuxiDemo12 from "./复习/12复习(KeyboardAvoidingView防止键盘遮挡)"
+import FuxiDemo13 from "./复习/13复习(ListView单组)"
+
+
+
 
 import XinUI1 from "./第三方UI组件/(001)React-Native-Elements/001Avatar";
 
@@ -125,6 +134,26 @@ export default class App extends Component < Props > {
         // <FuxiDemo5/>
         // <FuxiDemo6/>
         // <FuxiDemo7/>
+        // <FuxiDemo8/>
+        // <FuxiDemo9/>
+        // <FuxiDemo10/>
+        // <FuxiDemo11/>
+        // <FuxiDemo12/>
+        <FuxiDemo13/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+        // <FuxiDemo12/>
+
+
 
         // <XinUI1/>
 
@@ -132,7 +161,7 @@ export default class App extends Component < Props > {
         // <XinUI3/>
         // <XinUI4/>
         // <XinUI5/>
-        <RiLi/>
+        // <RiLi/>
 
 
 

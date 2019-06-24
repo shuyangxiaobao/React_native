@@ -51,7 +51,7 @@ export default class Text1 extends Component<Props> {
 
             <View style={styles.twoViewStyle}>
                 <Text style={styles.onetextStyle}>
-                    2.加载APP中的图片
+                    2.加载APP中的图片345678
                 </Text>
 
                 <Image
