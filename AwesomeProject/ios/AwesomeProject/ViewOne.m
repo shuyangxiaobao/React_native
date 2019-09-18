@@ -37,19 +37,16 @@ RCT_EXPORT_METHOD(changeTitle:(NSString *)title){
 
 RCT_EXPORT_METHOD(jumpToIOSVC:(RCTResponseSenderBlock)callback) {
   dispatch_async(dispatch_get_main_queue(), ^{
-
-//    TestController *one = [[TestController alloc]init];
-//
-//    AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//
-//    [app.nav pushViewController:one animated:YES];
-    
-    
     TestController *one = [[TestController alloc]init];
     [[KYEFuncTools presentingVC].navigationController pushViewController:one animated:YES];
-    
+    one.NativeToRN = ^{
+//      callback(@[@"asd",@"gh"]);
+      [self.bridge.eventDispatcher sendAppEventWithName:@"RNnotfication" body:@{@"name":@"xiaoming"}];
+
+    };
   });
-  callback(@[@"asd",@"gh"]);
+//  callback(@[@"asd",@"gh"]);
+
 }
 
 

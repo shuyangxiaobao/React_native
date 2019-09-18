@@ -9,7 +9,8 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    Button,
 } from 'react-native';
 
 
@@ -22,9 +23,24 @@ export default class HKCellView extends Component {
                 <Text style={styles.instructions}>
                     Cell详情页!!!
                 </Text>
+
+                <Button
+            onPress={()=>this.click()}
+            title={"返回"}
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+            />
+
+
             </View>
         );
     }
+
+    click(){
+        this.props.navitator.pop();
+    }
+
+
 }
 
 const styles = StyleSheet.create({

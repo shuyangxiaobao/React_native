@@ -25,7 +25,7 @@ export default class HKMine extends Component {
                     onPress={this.pushTo}
                 >
                 <Text style={styles.instructions}>
-                    我的
+                    {this.props.title}
                 </Text>
                 </TouchableOpacity>
             </View>

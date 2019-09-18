@@ -17,7 +17,7 @@ import {
     Button,
 } from 'react-native';
 
-var {requireNativeComponent } = require('react-native');
+var { requireNativeComponent } = require('react-native');
 //第一个参数! 名字就是iOS原生的类名!! 那么如果有Manager 那么请去掉!!
 // var HKView = requireNativeComponent('HKViewOne',IOSView);
 
@@ -25,8 +25,8 @@ var {requireNativeComponent } = require('react-native');
 // var HKViewOne = NativeModules.HKViewOne;
 // HKViewOne.changeTitle('我来了!!!');
 
-var GQBView = requireNativeComponent('ViewOne',IOSView);
-import {NativeModules} from 'react-native';
+// var GQBView = requireNativeComponent('ViewOne',IOSView);
+import { NativeModules } from 'react-native';
 var manager = NativeModules.ViewOne;
 
 // RN 调用原生
@@ -34,50 +34,60 @@ var manager = NativeModules.ViewOne;
 // manager.ocmethod("1234");
 
 // 原生调用RN
-NativeAppEventEmitter.addListener('RNnotfication',(userInfo)=>{
-    AlertIOS.alert(userInfo.name);
+NativeAppEventEmitter.addListener('RNnotfication', (userInfo) => {
+    // AlertIOS.alert(userInfo.name);
+    alert(userInfo.name)
 })
 
 export default class IOSView extends Component {
     render() {
         return (
-                // <GQBView
-                // style={{flex:1}}
-                // />
-                <View style={styles.container}>
+            // <GQBView
+            // style={{flex:1}}
+            // />
+            <View style={styles.container}>
                 <Button
-                onPress={()=>this.buttonClick()}
-                title={"跳转到原生页面33"}
-                color="#841584"
-                accessibilityLabel="Learn more about this purple button"
+                    onPress={() => this.buttonClick()}
+                    title={"跳转到原生页面33"}
+                    color="#841584"
+                    accessibilityLabel="Learn more about this purple button"
+                />
+
+                <Button
+                    onPress={() => this.viewClick()}
+                    title={"返回上一个RN页面"}
+                    color="#841584"
+                    accessibilityLabel="Learn more about this purple button"
                 />
             </View>
-           
+
         );
     }
 
 
-    buttonClick(){
-        // alert("000");
-    console.log(manager);
-    //    manager.changeTitle('我来了!!!');
+    buttonClick() {
+        // console.log(manager);
+        //    manager.changeTitle('我来了!!!');
 
-       manager.jumpToIOSVC((a1,a2)=>{
+        manager.jumpToIOSVC((a1, a2) => {
             // alert(info);
             console.log(a1);
             console.log(a2);
+            alert(a1);
+            // this.props.nav.pop();
 
-       })
+
+        })
 
     }
 
 
 
 
-    viewClick(){
+    viewClick() {
         //为了严谨起见!!先判断
-        if(this.props.getUserName){
-            this.props.getUserName('全世界最帅的男人!!')
+        if (this.props.getUserName) {
+            this.props.getUserName('返回上一个RN页面!!')
         }
 
         //props 属性!!! 这个属性是你这个对象创建的时候定义的!!!

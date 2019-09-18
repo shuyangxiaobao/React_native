@@ -38,19 +38,19 @@ export default class Text1 extends Component<Props> {
     render() {
         return (
             <TouchableOpacity activeOpacity={0.5}
-            onPress={()=>{AlertIOS.alert('购买成功!','成功解锁'+this.props.item.name+'英雄!')}}
+            onPress={()=>{AlertIOS.alert('购买成功!','成功解锁'+this.props.item3.name+'英雄!')}}
             >
                 <View style={styles.cellViewStyle}>
                 {/*左边的图片*/}
-                    <Image source={{uri:this.props.item.image}} style={styles.leftImageStyle}/>
+                    <Image source={{uri:this.props.item3.image}} style={styles.leftImageStyle}/>
                     {/*右边的View*/}
                     <View style={styles.rightViewStyle}>
                         {/*上面是英雄名称*/}
-                        <Text style={styles.topTitleStyle}>{this.props.item.name + "0000"}</Text>
+                        <Text style={styles.topTitleStyle}>{this.props.item3.name + "0000"}</Text>
                         {/*下面是英雄描述*/}
                         <Text style={styles.bottomTitleStyle}
                             numberOfLines={3}
-                        >{this.props.item.title}</Text>
+                        >{this.props.item3.title}</Text>
                     </View>
                 </View>
             </TouchableOpacity>

@@ -19,88 +19,94 @@ import {
 
 import IOSView from './16.2IOSView'
 import SecondView from "./16.3SecondView"
+var Dimensions = require('Dimensions');
+var SCREENWIDTH = Dimensions.get('window').width;
+var SCREENHEIGHT = Dimensions.get('window').height;
 
 export default class FirstView extends Component {
     // 构造函数
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            userName:null
+        this.state = {
+            userName: null
         }
     }
 
     render() {
         return (
-            
-           <View style={styles.container}>
-               {/*导航条*/}
-               <View style={styles.navStyle}>
-                   {/*导航条中间的文字*/}
-                   <Text>{this.props.name+'名字是'+ this.state.userName +this.props.name}</Text>
 
-               </View>
-               <TouchableOpacity
-                onPress={()=>this.viewClick()}   //ES6 箭头函数写法
+            <View style={styles.container}>
+                {/*导航条*/}
+                <View style={styles.navStyle}>
+                    {/*导航条中间的文字*/}
+                    <Text>{this.props.name + '名字是' + this.state.userName + this.props.name}</Text>
+
+                </View>
+                <TouchableOpacity
+                    onPress={() => this.viewClick()}   //ES6 箭头函数写法
                 // onPress={this.viewClick.bind(this)}    //动态绑定
-        // onPress={()=>this.myClick(this.props.name)}
+                // onPress={()=>this.myClick(this.props.name)}
 
-               >
+                >
                     <Text>{this.props.title} + {this.props.name}</Text>
 
-               </TouchableOpacity>
-               <Text>                    </Text>
-               <Text>                    </Text>
-               <Text>                    </Text>
+                </TouchableOpacity>
+                <Text>                    </Text>
+                <Text>                    </Text>
+                <Text>                    </Text>
 
 
-            <TouchableOpacity
-                onPress={()=>this.yuanshengClick()} >
+                <TouchableOpacity
+                    onPress={() => this.yuanshengClick()} >
                     <Text>
                         加载原生组件
                     </Text>
 
-            </TouchableOpacity>
+                </TouchableOpacity>
 
-           </View>
+            </View>
         );
     }
 
-    yuanshengClick(){
+    yuanshengClick() {
+        // this.props.nav.pop();
+        // alert("22");
+        // return;
         this.props.nav.push({
-            component:IOSView,
-            name:"顺传数值",
-            params:{
-                title:'001',
+            component: IOSView,
+            name: "顺传数值",
+            params: {
+                title: '001',
                 //从第二个页面获取userName  逆向传值
-                getUserName:function (user) {
+                getUserName: function (user) {
                     this.setState({
-                        userName:user
+                        userName: user
                     })
                 }.bind(this),
-                name:"第二个name",
+                name: "第二个name",
             }
         })
     }
 
 
-    myClick(title){
+    myClick(title) {
         AlertIOS.alert(title);
     }
 
-    viewClick(){
+    viewClick() {
         //props 属性!!! 这个属性是你这个对象创建的时候定义的!!!
         this.props.nav.push({
-            component:SecondView,
-            name:"顺传数值",
-            params:{
-               title:'这是多参数传值',
+            component: SecondView,
+            name: "顺传数值",
+            params: {
+                title: '这是多参数传值',
                 //从第二个页面获取userName
-                getUserName:function (user) {
+                getUserName: function (user) {
                     this.setState({
-                        userName:user
+                        userName: user
                     })
                 }.bind(this),
-                getxlpname:function(name){
+                getxlpname: function (name) {
                     AlertIOS.alert(name);
                 }.bind(this),
             }
@@ -115,18 +121,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    navStyle:{
-        position:'absolute',
-        top:0,
-        width:375,
-        height:64,
-        backgroundColor:'#dddddd',
-        flexDirection:'column',
-        justifyContent:'center',
-        alignItems:'center',
-        borderBottomWidth:0.5,
-        borderBottomColor:'rgba(1,1,1,1)',
-        paddingTop:20,
+    navStyle: {
+        position: 'absolute',
+        top: 0,
+        width: SCREENWIDTH,
+        height: 64,
+        backgroundColor: '#dddddd',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderBottomWidth: 0.5,
+        borderBottomColor: 'rgba(1,1,1,1)',
+        paddingTop: 20,
 
     }
 });

@@ -21,7 +21,13 @@ type Props = {};
 var Dimensions = require('Dimensions');
 var SCREENWIDTH = Dimensions.get('window').width;
 var SCREENHEIGHT = Dimensions.get('window').height;
-
+var isIPhoneX = (width == 375) && (height == 812);
+// iPhone XS Max
+var isIPhoneXSMax = (width == 414) && (height == 896);
+// iPhone XR
+var isIPhoneXR = (width == 414) && (height == 896);
+//
+var IPHONEX = isIPhoneX || isIPhoneXSMax || isIPhoneXR;
 export default class Text1 extends Component<Props> {
 
     constructor(props) 

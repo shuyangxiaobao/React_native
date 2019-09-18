@@ -76,7 +76,7 @@ export default class ImagePickerIOSTest extends Component<Props> {
     openCameraDialog(){
         ImagePickerIOS.openCameraDialog({}, (imageUri) => {
             console.log("success");
-            alert("success");
+            alert("1success");
           this.setState({ image: imageUri });
     
         }, ()=>{

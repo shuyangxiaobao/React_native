@@ -47,35 +47,35 @@ export default class ViewTest extends Component<Props> {
     // 用来从原生类定位这个视图
             nativeID={"001"}
     // 当组件挂载或者布局变化的时候调用，参数为：:{nativeEvent: { layout: {x, y, width, height}}}
-            onLayout={(event)=>this.onLayout(event)}
+            // onLayout={(event)=>this.onLayout(event)}
 
     // 当 accessible 为 true 时，如果用户做了一个双指轻触(Magic tap)手势，系统会调用此函数。
             accessible={true}
             onMagicTap={this.onMagicTap}
     // 滑动的时候触发
-            onMoveShouldSetResponder={(event)=>{this.onMoveShouldSetResponder(event)}}
-    // 如果父视图想要阻止子视图响应 touch move 事件时，它就应该设置这个方法并返回 true
-    // true  onMoveShouldSetResponder 不响应  onResponderGrant 响应
-    // false  onMoveShouldSetResponder 响应  onResponderGrant 不响应
-            onMoveShouldSetResponderCapture={(event)=>this._onMoveShouldSetResponderCapture(event)}
-    // 当用户正在屏幕上移动手指时调用这个函数(每次触摸调用一次)
-            onResponderGrant={(event)=>{this.onResponderGrant(event)}}
-    // 有一个响应器正处于活跃状态，并且不会向另一个要求响应这个事件的视图释放这个事件。
-            onResponderReject={(event)=>{this.onResponderReject(event)}}
-    // 在整个触摸事件结束时调用这个函数。
-            onResponderRelease={this._onResponderRelease}
+    //         onMoveShouldSetResponder={(event)=>{this.onMoveShouldSetResponder(event)}}
+    // // 如果父视图想要阻止子视图响应 touch move 事件时，它就应该设置这个方法并返回 true
+    // // true  onMoveShouldSetResponder 不响应  onResponderGrant 响应
+    // // false  onMoveShouldSetResponder 响应  onResponderGrant 不响应
+    //         onMoveShouldSetResponderCapture={(event)=>this._onMoveShouldSetResponderCapture(event)}
+    // // 当用户正在屏幕上移动手指时调用这个函数(每次触摸调用一次)
+    //         onResponderGrant={(event)=>{this.onResponderGrant(event)}}
+    // // 有一个响应器正处于活跃状态，并且不会向另一个要求响应这个事件的视图释放这个事件。
+    //         onResponderReject={(event)=>{this.onResponderReject(event)}}
+    // // 在整个触摸事件结束时调用这个函数。
+    //         onResponderRelease={this._onResponderRelease}
 
-    // 如果父视图想要阻止子视图响应 touch start 事件，它就应该设置这个方法并返回 true。
-            onStartShouldSetResponderCapture={this._onStartShouldSetResponderCapture}
-    // 用于控制当前视图是否可以作为触控事件的目标。
-        // auto：视图可以作为触控事件的目标。
-        // none：视图不能作为触控事件的目标。
-        // box-none：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在 CSS 中这样设置:
-            pointerEvents={"auto"}
+    // // 如果父视图想要阻止子视图响应 touch start 事件，它就应该设置这个方法并返回 true。
+    //         onStartShouldSetResponderCapture={this._onStartShouldSetResponderCapture}
+    // // 用于控制当前视图是否可以作为触控事件的目标。
+    //     // auto：视图可以作为触控事件的目标。
+    //     // none：视图不能作为触控事件的目标。
+    //     // box-none：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在 CSS 中这样设置:
+    //         pointerEvents={"auto"}
 
-            removeClippedSubviews={true}
-            // 用来在端到端测试中定位这个视图
-            testID={"id001"}
+    //         removeClippedSubviews={true}
+    //         // 用来在端到端测试中定位这个视图
+    //         testID={"id001"}
 
           >
             <View style={{ backgroundColor: "blue", flex:1 }} />

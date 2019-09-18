@@ -33,7 +33,7 @@ export default class MessageContainer extends React.Component {
     this.requestData();
 
     var Heros = require('./Json/heros.json');//数组
-
+    Heros = [];//数据源为空时显示 
     this.setState({
       data:Heros
     })
@@ -60,9 +60,10 @@ export default class MessageContainer extends React.Component {
         <View
         style={{
         height: 1,
-        width: "100%",
+        width: "96%",
+        // width:width-20,
         backgroundColor: "#CED0CE",
-        marginLeft: "0%"
+        marginLeft: "2%"
         }}
         />
     );
@@ -113,6 +114,23 @@ export default class MessageContainer extends React.Component {
   };
 
 
+  renderListEmptyComponent = () => {
+      
+    return (
+      <View
+        style={{
+          paddingVertical: 20,
+          borderTopWidth: 1,
+          borderColor: "#CED0CE"
+        }}
+      >
+        <ActivityIndicator animating size="large" />
+      </View>
+    );
+  }
+
+
+
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white',marginTop:20 }}>
@@ -120,7 +138,7 @@ export default class MessageContainer extends React.Component {
         <FlatList
           data={this.state.data}
           renderItem={({ item }) => (
-            <MessageCell item={item} />
+            <MessageCell item3={item} />
           )} 
           // 分割线
           ItemSeparatorComponent={this.renderSeparator}
@@ -131,6 +149,7 @@ export default class MessageContainer extends React.Component {
           loading={this.state.loading}
           ListHeaderComponent={this.renderHeader}
           ListFooterComponent={this.renderFooter}
+          ListEmptyComponent={this.renderListEmptyComponent}
           />
       </View>
     );

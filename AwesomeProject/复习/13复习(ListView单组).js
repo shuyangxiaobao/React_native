@@ -44,22 +44,58 @@ export default class Text1 extends Component<Props> {
             <ListView
             style = {{marginTop:64,}}
             dataSource = {this.state.dataSource}
-            renderRow = {this.renderRow}
-
+            renderRow = {this.renderRow.bind(this)}
             />
-
     );
     }
 
     renderRow(rowData,sectionID,rowID,highlightRow){
+        var obj = this;
         return(
+            <TouchableOpacity
+            // onPress={(rowData)=>{AlertIOS.alert('成功!','成功解锁'+rowData.name+'英雄!'+ this.dataSource.toString())}}
+            // onPress={()=>obj.onPress(sectionID,rowID)}
+            onPress={()=>this.click(sectionID,rowID,rowData)}
+
+
+            // onChange={(value)=>this.change(value)}
+
+            >
+            {/* <TouchableOpacity activeOpacity={0.5}
+            onPress={()=>{AlertIOS.alert('购买成功!','成功解锁'+rowData.name+'英雄!')}}
+> */}
+
             <View style={styles.cellStyle}>
-<Text>65789</Text>
+                 <Text style={styles.cellTextStyle}>
+                    {rowData.name}
+                 </Text>
+                 <View style={styles.bottomViewStyle}>
+                    <Image source={{uri:rowData.image}} style={styles.leftImageStyle}/>
+
+
+                    <Text style={styles.destriptionStyle}
+                    numberOfLines={100}
+                    >{"        " + rowData.title}</Text>
+
+
+                 </View>
+
+
             </View>
+            </TouchableOpacity>
         )
     }
-}
 
+    click(sectionID,rowID,rowData){
+        // alert("234");
+        AlertIOS.alert("ok",rowData.name,);
+
+        
+        // alert(rowData.name)
+    }
+
+
+}
 
 const styles = StyleSheet.create({
     container:{
@@ -71,9 +107,44 @@ const styles = StyleSheet.create({
     },
     cellStyle:{
         width:SCREENWIDTH,
-        height:50,
+        // height:90,
+       // flexDirection:"column",
+       flexDirection:"column",
+        justifyContent:"flex-start",
+        alignItems:'flex-start',
+        borderColor:"#000000",
+        borderBottomWidth:0.3,
+    
+
+    },
+    cellTextStyle:{
+
+        marginTop:10,
+        width:SCREENWIDTH,
+        textAlign:"center",
+
+
+    },
+    leftImageStyle:{
+        width:100,
+        height:100,
+        marginTop:10,
+        marginBottom:40,
+        marginLeft:20,
+
+    },
+    bottomViewStyle:{
+        flexDirection:"row",
+        justifyContent:"flex-start",
+        alignItems:'flex-start',
+        width:SCREENWIDTH,
+    },
+    destriptionStyle:{
+
+       marginTop:10, 
+       marginLeft:10,
+       marginRight:140,
     }
 
 })
-
 

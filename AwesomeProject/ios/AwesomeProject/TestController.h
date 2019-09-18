@@ -10,4 +10,6 @@
 
 @interface TestController : UIViewController
 
+@property(nonatomic,copy)void(^NativeToRN)();
+
 @end

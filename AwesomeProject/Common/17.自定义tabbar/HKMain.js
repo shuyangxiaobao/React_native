@@ -34,7 +34,7 @@ export default class HKMain extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            tabNames:['首页1','我的','发现','消息'],
+            tabNames:['首页','我的','发现','消息'],
             tabIconNames:['tabbar_home','tabbar_profile','tabbar_discover','tabbar_message_center'],
             tabSelectImags:['tabbar_home_highlighted','tabbar_profile_highlighted','tabbar_discover_highlighted','tabbar_message_center_highlighted'],
         }
@@ -58,14 +58,14 @@ export default class HKMain extends React.Component {
             // top(放在界面上方)、bottom(放在界面底部)、overlayTop(有悬浮效果在上方)、overlayBottom(有悬浮效果在下方)
             tabBarPosition="bottom"
             //切换动画效果
-            scrollWithoutAnimation={false}
-            styles
+            scrollWithoutAnimation={true}
             //常用属性
 
             // :切换界面的时候会调用该方法，
             onChangeTab={
                 (obj)=>{
                   console.log('切换到了'+obj.i+'个');
+                  alert(obj.i.toString());
                 }
             }
             // 初始化时被选中的下标，默认为0
@@ -79,7 +79,7 @@ export default class HKMain extends React.Component {
                 }
             }
             //锁住滚动
-            locked={false}
+            locked={true}
 
             // tabBarBackgroundColor:整个tabBar的背景颜色。
             tabBarBackgroundColor={"red"}
@@ -90,7 +90,7 @@ export default class HKMain extends React.Component {
 
             // 提供一个object对象的参数，用于设置文字的样式，如字体字号
             tabBarTextStyle={
-                {fontSize: 25}
+                {fontSize: 10}
             }
            >
                <Navigator
@@ -110,7 +110,7 @@ export default class HKMain extends React.Component {
                    initialRoute={{
                        component:HKMine,
                        params:{
-                           title:'我的'
+                           title:'我的Navigator'
                        }
                    }}
                    renderScene={(route,navigator)=>
@@ -118,11 +118,11 @@ export default class HKMain extends React.Component {
                    }
                />
                <Navigator
-                   tabLabel="发现"
+                   tabLabel="发现3"
                    initialRoute={{
                        component:HKFind,
                        params:{
-                           title:'发现'
+                           title:'发现 Navigator'
                        }
                    }}
                    renderScene={(route,navigator)=>
@@ -130,11 +130,11 @@ export default class HKMain extends React.Component {
                    }
                />
                <Navigator
-                   tabLabel="消息"
+                   tabLabel="消息4"
                    initialRoute={{
                        component:HKMessage,
                        params:{
-                           title:'消息'
+                           title:'消息 Navigator'
                        }
                    }}
                    renderScene={(route,navigator)=>

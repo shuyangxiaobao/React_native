@@ -27,21 +27,21 @@ var Car = require('./Json/Car.json');
 
 export default class ListViewTest2 extends Component {
     //构造函数
-    constructor(props){
+    constructor(props) {
         super(props);
-        var getSectionData = (dataBlob,sectionID)=>{
+        var getSectionData = (dataBlob, sectionID) => {
             return dataBlob[sectionID];
         };
-        var getRowData = (dataBlob,sectionID,rowID) =>{
-            return dataBlob[sectionID+':'+rowID];
+        var getRowData = (dataBlob, sectionID, rowID) => {
+            return dataBlob[sectionID + ':' + rowID];
         };
 
-        this.state={
-            dataSource:new ListView.DataSource({
-                getSectionData:getSectionData,//获取组数据
-                getRowData:getRowData,//获取数据
-                rowHasChanged:(r1,r2) => r1 !== r2,
-                sectionHeaderHasChanged:(s1,s2) => s1 !== s2
+        this.state = {
+            dataSource: new ListView.DataSource({
+                getSectionData: getSectionData,//获取组数据
+                getRowData: getRowData,//获取数据
+                rowHasChanged: (r1, r2) => r1 !== r2,
+                sectionHeaderHasChanged: (s1, s2) => s1 !== s2
             })
         }
     }
@@ -51,7 +51,7 @@ export default class ListViewTest2 extends Component {
             <View style={styles.container}>
                 {/*头部Nav*/}
                 <View style={styles.NavViewStyle}>
-                    <Text style={{color:'white',fontSize:25}}>这是汽车品牌展示</Text>
+                    <Text style={{ color: 'white', fontSize: 25 }}>这是汽车品牌展示</Text>
                 </View>
                 {/*ListView*/}
                 <ListView
@@ -64,49 +64,49 @@ export default class ListViewTest2 extends Component {
     }
 
     //返回每一组头部的内容
-    renderSectionHeader(sectionData,sectionID){
-        return(
+    renderSectionHeader(sectionData, sectionID) {
+        return (
             <View style={styles.sectionHeaderStyle}>
-               <Text style={{marginLeft:5,color:'red'}}>{sectionData}</Text>
+                <Text style={{ marginLeft: 5, color: 'red' }}>{sectionData}</Text>
             </View>
         )
     }
 
     //返回每一行Cell
-    renderRow(rowData,sectionID, rowID){
+    renderRow(rowData, sectionID, rowID) {
         // var obj = this;
-        return(
+        return (
             <TouchableOpacity activeOpacity={0.5}
-            onPress={()=>this.click(sectionID,rowID)}
+                onPress={() => this.click(sectionID, rowID)}
             >
                 <View style={styles.rowStyle}>
-                    <Image source={{uri:rowData.icon}} style={styles.rowImageStyle}/>
-                    <Text style={{marginLeft:5}}>{rowData.name}</Text>
+                    <Image source={{ uri: rowData.icon }} style={styles.rowImageStyle} />
+                    <Text style={{ marginLeft: 5 }}>{rowData.name}</Text>
                 </View>
             </TouchableOpacity>
         )
     }
-    click(sectionID,rowID){
-        AlertIOS.alert(sectionID.toString() +":"+ rowID.toString());
+    click(sectionID, rowID) {
+        AlertIOS.alert(sectionID.toString() + ":" + rowID.toString());
     }
 
     //发送网络请求的生命周期方法
-    componentDidMount(){
+    componentDidMount() {
         //数据我们需要先处理
         this.loadJson();
     }
 
-    loadJson(){
+    loadJson() {
         //拿到Json
         var jsonData = Car.data;
         //定义数据源需要的变量
-        var dataBlob = {},  
+        var dataBlob = {},  //A,B,C.D...
             sectionIDs = [],//组ID
             rowIDs = [],//二维数组!!
             cars = [];
 
         // //遍历
-        for(var i=0;i<jsonData.length;i++){
+        for (var i = 0; i < jsonData.length; i++) {
             //1.组ID拿到
             sectionIDs.push(i);
             //2.dataBlob
@@ -114,48 +114,48 @@ export default class ListViewTest2 extends Component {
             //3.取出这一组的所有的车
             cars = jsonData[i].cars;
             rowIDs[i] = [];
-            for (var j=0;j<cars.length;j++){
+            for (var j = 0; j < cars.length; j++) {
                 //i组的j行  那么这一行的ID 就是 j
                 rowIDs[i].push(j);
                 //每一行的内容放到dataBlob里面了!!
-                dataBlob[i+':'+j] = cars[j];
+                dataBlob[i + ':' + j] = cars[j];
             }
         }
         console.log(dataBlob);
         console.log(rowIDs);
         //更新状态机!!21    1
         this.setState({
-            dataSource:this.state.dataSource.cloneWithRowsAndSections(dataBlob,sectionIDs,rowIDs)
+            dataSource: this.state.dataSource.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs)
         })
     }
 }
 
 const styles = StyleSheet.create({
-    container:{
-      flex:1,
+    container: {
+        flex: 1,
     },
-    NavViewStyle:{
-        height:64,
-        backgroundColor:'orange',
-        justifyContent:'center',
-        alignItems:'center',
+    NavViewStyle: {
+        height: 64,
+        backgroundColor: 'orange',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     rowStyle: {
-        padding:10,
-        flexDirection:'row',
-        alignItems:'center',
+        padding: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
         //cell分割线
-        borderBottomColor:'#e8e8e8',
-        borderBottomWidth:0.5
+        borderBottomColor: '#e8e8e8',
+        borderBottomWidth: 0.5,
     },
-    rowImageStyle:{
-        width:70,
-        height:70
+    rowImageStyle: {
+        width: 70,
+        height: 70
     },
-    sectionHeaderStyle:{
-        backgroundColor:'#e8e8e8',
-        height:25,
-        justifyContent:'center',
+    sectionHeaderStyle: {
+        backgroundColor: '#e8e8e8',
+        height: 25,
+        justifyContent: 'center',
     }
 
 });

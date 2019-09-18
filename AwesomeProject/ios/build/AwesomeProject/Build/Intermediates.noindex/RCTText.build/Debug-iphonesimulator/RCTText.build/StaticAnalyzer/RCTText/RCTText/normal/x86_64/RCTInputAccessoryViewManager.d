@@ -1,0 +1,31 @@
+dependencies: \
+  /Users/xiaobao/Git/React_native/AwesomeProject/node_modules/react-native/Libraries/Text/TextInput/RCTInputAccessoryViewManager.m \
+  /Users/xiaobao/Git/React_native/AwesomeProject/node_modules/react-native/Libraries/Text/TextInput/RCTInputAccessoryViewManager.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/yoga/YGValue.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/node_modules/react-native/Libraries/Text/TextInput/RCTInputAccessoryShadowView.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTShadowView.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTLayout.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/ios/build/AwesomeProject/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
+  /Users/xiaobao/Git/React_native/AwesomeProject/node_modules/react-native/Libraries/Text/TextInput/RCTInputAccessoryView.h

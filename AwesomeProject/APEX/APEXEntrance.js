@@ -1,0 +1,262 @@
+
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Dimensions,
+  ScrollView,
+  ListView,
+  Image,
+  TouchableHighlight
+} from 'react-native';
+import {
+  Navigator,
+} from "react-native-deprecated-custom-components";
+import Drawer from 'react-native-drawer';
+//引入三方框架
+import ScrollableTabView, { DefaultTabBar, ScrollableTabBar } from 'react-native-scrollable-tab-view';
+//自定义TabBar
+import APEXTabbar from './APEXTabbar'
+import Home from "./Home/Home";
+
+
+var Arr = ['我的账户', '转账汇款', '投资理财', '余额理财', '工商e支付', '手机充值', 'e缴费', '信用卡', '注册账户转账', '贷款', '融e购', '融e联', 'Apple Pay'];
+var ImageArr = [require('./image/1.jpeg'), require('./image/2.jpeg'), require('./image/3.jpeg'), require('./image/4.jpeg'), require('./image/5.jpeg')];
+const { width, height } = Dimensions.get('window');
+
+var isIPhoneX = (width == 375) && (height == 812);
+// iPhone XS Max
+var isIPhoneXSMax = (width == 414) && (height == 896);
+// iPhone XR
+var isIPhoneXR = (width == 414) && (height == 896);
+//
+var IPHONEX = isIPhoneX || isIPhoneXSMax || isIPhoneXR;
+
+export default class MyAnimated extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      openType: false
+    };
+  }
+  //接收子组件传来的数据改变openType状态，刷新UI
+  LeftClicked(openType) {
+    this.setState({
+      openType: openType
+    });
+  }
+  //侧拉的实现方式
+  render() {
+    return (
+      <View style={styles.container}>
+        <Drawer type='overlay'
+          side='left'
+          content={<LeftVC />} //左侧拉的页面
+          tapToClose={true}
+          panOpenMask={0.2}
+          panDrawerOffset={0.2}
+          panCloseMask={0.2}
+          closedDrawerOffset={0}
+          open={this.state.openType}
+          style={drawerStyles}
+          tweenHandler={(ratio) => ({ main: { opacity: (2 - ratio) / 2 } })}>
+          <Main LeftClicked={this.LeftClicked.bind(this)} />
+        </Drawer>
+      </View>
+    );
+  }
+}
+// 左边侧拉栏代码实现
+class LeftVC extends Component {
+  render() {
+    return (
+      <View style={{ flex: 1, }}>
+        <View style={{ width: width - 100, height: 64, backgroundColor: '#3893C9', alignItems: 'center' }}></View>
+        <View style={{ width: width - 100, backgroundColor: 'white', flex: 1 }}>
+          <View style={{
+            height: 40,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'orange',
+            marginTop: 10
+          }}><Text>我的钱包</Text></View>
+          <View style={{
+            height: 40,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'orange',
+            marginTop: 10
+          }}><Text>我的卡卷</Text></View>
+        </View>
+      </View>
+    );
+  }
+}
+// 首页代码列表
+class Main extends Component {
+
+  //侧拉方法传入首页侧拉刷新UI
+  LeftClicked() {
+    this.props.LeftClicked(true);
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabNames: ['Home', "Data", "News", "Products"],
+      normalIcons: ["home", "data", "news", "products"],
+      selectIcons: ["home-Click", "data-Click", "news-Click", "products-Click"],
+    }
+  }
+  onPress() {
+    // this.props.nav.pop();
+    alert('pop');
+  }
+
+  render() {
+    let tabNames = this.state.tabNames;
+    let normalIcons = this.state.normalIcons;
+    let selectIcons = this.state.selectIcons;
+    var obj = this;
+    return (
+      <View style={{ width: width, height: height }}>
+        <ScrollableTabView
+          style={{ width: width, height: height - 500 }}
+          renderTabBar={() => <APEXTabbar
+            // ScrollableTabBar   DefaultTabBar  APEXTabbar
+
+            // DefaultTabBar表示Tab.item会平分水平方向上的空间，而ScrollableTabBar表示所有的tabBar.item的长度将会超过屏幕宽度，但是当滚动屏幕之时可以显示出来。
+            tabNames={tabNames}
+            tabIconNames={normalIcons}
+            tabIconSelectedNames={selectIcons}
+          />}
+          // tabbar 位置  bottom  top
+          // top(放在界面上方)、bottom(放在界面底部)、overlayTop(有悬浮效果在上方)、overlayBottom(有悬浮效果在下方)
+          tabBarPosition="bottom"
+          //切换动画效果
+          scrollWithoutAnimation={true}
+          //常用属性
+
+          // :切换界面的时候会调用该方法，
+          onChangeTab={
+            (obj) => {
+              console.log('切换到了' + obj.i + '个');
+              // alert(obj.i.toString());
+            }
+          }
+          // 初始化时被选中的下标，默认为0
+          initialPage={0}
+
+          // 视图滑动时调用
+          onScroll={
+            //Float
+            (posit) => {
+              console.log('监听到滚动' + posit);
+            }
+          }
+          //锁住滚动
+          locked={true}
+
+          // tabBarBackgroundColor:整个tabBar的背景颜色。
+          tabBarBackgroundColor={"red"}
+
+          // tabBarActiveTextColor/tabBarInactiveTextColor: 选中/未选中的tabBar的文字颜色
+          tabBarActiveTextColor={"387CFE"}  //选中tabBar的文字颜色
+          tabBarInactiveTextColor={"white"}  //未选中tabBar的文字颜色
+
+          // 提供一个object对象的参数，用于设置文字的样式，如字体字号
+          tabBarTextStyle={
+            { fontSize: 10 }
+          }
+        >
+          <Navigator
+            tabLabel="Home"
+            initialRoute={{
+              component: Home,
+              params: {
+                title: 'Home',
+                callBack: function () {
+                  // obj.props.nav.pop();
+                  obj.LeftClicked();
+                }
+              }
+            }}
+            renderScene={(route, navigator) =>
+              <route.component nav={navigator} {...route.params} />
+            }
+          />
+          <Navigator
+            tabLabel="Data"
+            initialRoute={{
+              component: Home,
+              params: {
+                title: '我的Navigator'
+
+              }
+            }}
+            renderScene={(route, navigator) =>
+              <route.component nav={navigator} {...route.params} />
+            }
+          />
+          <Navigator
+            tabLabel="News"
+            initialRoute={{
+              component: Home,
+              params: {
+                title: '发现 Navigator'
+              }
+            }}
+            renderScene={(route, navigator) =>
+              <route.component nav={navigator} {...route.params} />
+            }
+          />
+          <Navigator
+            tabLabel="Productions"
+            initialRoute={{
+              component: Home,
+              params: {
+                title: '消息 Navigator'
+              }
+            }}
+            renderScene={(route, navigator) =>
+              <route.component nav={navigator} {...route.params} />
+            }
+          />
+
+
+        </ScrollableTabView>
+      </View>
+
+
+    );
+  }
+}
+const drawerStyles = {
+  drawer: {
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 3
+  },
+  main: {
+    paddingLeft: 3
+  },
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#EFF3F6',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
