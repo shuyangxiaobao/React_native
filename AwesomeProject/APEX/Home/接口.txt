@@ -1,0 +1,12 @@
+
+
+
+
+
+home页 news接口
+http://mapp.asiapacificex.com/mobile/data/query
+{
+    businessType = 2;
+    pageNum = 1;
+    pageSize = 10;
+}

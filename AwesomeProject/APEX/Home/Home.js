@@ -17,7 +17,8 @@ import {
     TouchableHighlight,
     Button,
     ListView,
-    TouchableOpacity
+    TouchableOpacity,
+    StatusBar,
 } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components'
 // type Props = {};
@@ -40,7 +41,8 @@ import Market from "./market"
 import APEXWebView from "./APEXWebView"
 
 var data = ['轮播', 'market'];
-var newsData = require('../Json/news.json')
+var staticData = ['轮播', 'market'];
+// var newsData = require('../Json/news.json')
 function getAutoWidth(size) {
     return size * width / 375;
 }
@@ -49,17 +51,16 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        for (const item in newsData.data) {
-            console.log(item);
-            data.push(newsData.data[item])
-        }
-
+        // for (const item in newsData.data) {
+        //     data.push(newsData.data[item])
+        // }
         this.state =
             {
                 switchstate: true,
                 obj: null,
                 dataSource: ds.cloneWithRows(data),
-
+                base_url: "http://mapp.asiapacificex.com/mobile/data/query?businessType=2&pageNum=1&pageSize=10",
+                "baseIP": "http://129.226.152.177:8060"
             };
     }
     onPress() {
@@ -68,12 +69,19 @@ export default class Home extends Component {
         }
     }
     onNewsClick(rowData) {
+        // if (this.props.newsClickCallBack) {
+        //     this.props.newsClickCallBack();
+        // }
         this.props.nav.push({
             component: APEXWebView,
+            params: {
+                url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
+            }
         });
     }
-
-
+    componentWillMount() {
+        this.loadData();
+    }
 
     renderRow(rowData, sectionID, rowID, highlightRow) {
         if (rowID == 0) {
@@ -108,18 +116,81 @@ export default class Home extends Component {
             >
                 <View style={styles.cellStyle}>
                     <Text style={styles.cellTextStyle}>{rowData.title}</Text>
-                    <Text style={styles.timeStyle}>{rowData.time}</Text>
-                    <Text style={styles.browseStyle}>{rowData.browse}浏览</Text>
-
+                    <Text style={styles.timeStyle}>{this.functiontimetrans(rowData.createDate)}</Text>
+                    <Text style={styles.browseStyle}>{rowData.browseNum}浏览</Text>
                 </View>
                 <View style={styles.lineStyle}></View>
             </TouchableOpacity >
         );
     }
 
+    // 时间戳转化为时间
+    functiontimetrans(date) {
+        var date = new Date(date);//如果date为13位不需要乘1000
+
+        var Y = date.getFullYear() + '-';
+
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+
+        var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+
+        var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+
+        return Y + M + D + h + m + s;
+
+    }
+
+    //网络请求发送
+    loadData() {
+        let fetchOptions = {
+            method: 'GET',
+            // headers: {
+            //     'Accept': 'application/json',
+            //     'Content-Type': 'application/json',
+            // },
+            body: JSON.stringify({
+                businessType: '2',
+                pageNum: '1',
+                pageSize: "10"
+            })
+        };
+
+
+
+        fetch(this.state.base_url).then
+            ((response) => response.json())
+            .then((responseJson) => {
+                //拿到数据
+                console.log('😄😄😄😄😄');
+                var jsonData = [];
+                for (const index in staticData) {
+                    jsonData.push(staticData[index])
+                }
+                for (const index in responseJson.result.result) {
+                    jsonData.push(responseJson.result.result[index])
+                }
+
+                // jsonData.push(staticData);
+                // jsonData.push(responseJson.result.result);
+                //更新数据                
+                this.setState({
+                    dataSource: this.state.dataSource.cloneWithRows(jsonData)
+                })
+            })
+    }
+
+
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    backgroundColor="blue"
+                    barStyle="light-content"/*状态栏字体颜色*/
+                />
                 <View style={styles.topStyle}>
                     <TouchableHighlight style={styles.touchStyle}
                         onPress={() => this.onPress()}
@@ -138,7 +209,7 @@ export default class Home extends Component {
                     </TouchableHighlight>
                 </View>
                 <ListView
-                    style={{ marginTop: 88, width: width, height: 300 }}
+                    style={{ marginTop: IPHONEX ? 88 : 64, width: width, height: 300 }}
                     dataSource={this.state.dataSource}
                     renderRow={this.renderRow.bind(this)}
                 />
@@ -153,7 +224,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "#21212b",
         width: width,
-        height: height - 49 - 34,
+        height: height - (IPHONEX ? (49 + 34) : (49)),
         // flex: 1,
         alignItems: 'center',
         justifyContent: "flex-start",

@@ -32,7 +32,7 @@ export default class Test extends Component {
     //初始化固定值
     static defaultProps = {
         //间隔时间  单位是毫秒!!
-        duration: 1000
+        duration: 100000
     }
 
     render() {
@@ -189,7 +189,6 @@ export default class Test extends Component {
         // 如果存在this.timer，则使用clearTimeout清空。
         // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
         this.timer && clearTimeout(this.timer);
-        alert('componentWillUnmount');
     }
 
 

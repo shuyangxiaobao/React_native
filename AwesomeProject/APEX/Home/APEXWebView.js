@@ -15,7 +15,9 @@ import {
     AlertIOS,
     WebView,
     TouchableHighlight,
+    TouchableOpacity,
     Image,
+    StatusBar,
 } from 'react-native';
 
 
@@ -43,7 +45,7 @@ export default class APEXWebView extends Component<Props> {
             };
     }
 
-    onPressBack(){
+    onPressBack() {
         this.props.nav.pop();
     }
 
@@ -52,14 +54,18 @@ export default class APEXWebView extends Component<Props> {
 
 
             <View style={styles.container}>
+                <StatusBar
+                    backgroundColor="blue"
+                    barStyle="light-content"
+                />
 
                 <View style={styles.topStyle}>
-                    <TouchableHighlight style={styles.touchStyle}
-                    onPress={() => this.onPressBack()}
+                    <TouchableOpacity style={styles.touchStyle}
+                        onPress={() => this.onPressBack()}
                     >
                         <Image source={require('../image/back.png')} style={styles.imgeStyle}>
                         </Image>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                     {/* <Text style={styles.homeStyle}>
                         {this.props.title}
                     </Text> */}
@@ -74,12 +80,12 @@ export default class APEXWebView extends Component<Props> {
                     style={styles.webviewStyle}
                     originWhitelist={['*']}
                     // source={{ html: '<h1>Hello world</h1>' }}
-                    source={{ uri: 'https://www.baidu.com' }}
+                    source={{ uri: this.props.url }}
                     onLoadStart={this._onLoadStart}
                     onLoadEnd={this._onLoadEnd}
                     allowsInlineMediaPlayback={true}
                 />
-            </View>
+            </View >
         );
     }
 }
@@ -89,7 +95,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "#dddddd",
         flex: 1,
-        alignItems:"flex-start",
+        alignItems: "flex-start",
         justifyContent: "flex-start",
         flexDirection: "column",
         position: "relative"
@@ -107,22 +113,21 @@ const styles = StyleSheet.create({
     },
     webviewStyle: {
         width: width,
-        height: height - IPHONEX ? 88 : 64,
+        height: IPHONEX ? height - 88-34-49 : height-64-49,
         position: "absolute",
-        top: 88,
-        marginLeft:0,
-        // left:0,
-        height: height - 88,
-    },
-    imgeStyle:{
-        position:"absolute",
-        // backgroundColor:"#ffff90",
-        bottom:6,
+        top: IPHONEX ? 88 : 64,
         left:0,
-        width:50,
-        height: 25,
-        resizeMode:"contain" //contain,cover,repeat,stretch
-        
+        backgroundColor:"#21212b"
+    },
+    imgeStyle: {
+        position: "absolute",
+        backgroundColor:"#ffff90",
+        bottom: 6,
+        left: 0,
+        width: 60,
+        height: 30,
+        resizeMode: "contain" //contain,cover,repeat,stretch
+
     }
 
 })

@@ -62,7 +62,7 @@ export default class Text1 extends Component<Props> {
         return (
             <View style={styles.container}>
                 <View style={{ width: width, height: 50, backgroundColor: "#21212b" }}>
-                    <Text style={{ color: "#ffffff", fontSize: 16, top: 20, left: 15, fontWeight: 800 }}>
+                    <Text style={{ color: "#ffffff", fontSize: 16, top: 20, left: 15, fontWeight: "800" }}>
                         Market Data
                 </Text>
 

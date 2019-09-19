@@ -6,6 +6,38 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
+		<key>9B7DAA30-3882-4599-AC0A-899950D3B2BF</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9B7DAA30-3882-4599-AC0A-899950D3B2BF.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>AwesomeProject project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>AwesomeProject</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace AwesomeProject with scheme AwesomeProject and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>590554524.46054196</real>
+			<key>timeStoppedRecording</key>
+			<real>590554529.95822597</real>
+			<key>title</key>
+			<string>Building workspace AwesomeProject with scheme AwesomeProject and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>9B7DAA30-3882-4599-AC0A-899950D3B2BF</string>
+		</dict>
 		<key>E8004BE3-31E0-468B-8ECA-FC26E20AE97B</key>
 		<dict>
 			<key>className</key>

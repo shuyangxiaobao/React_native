@@ -87,6 +87,8 @@ export default class Text1 extends Component<Props> {
           style={{marginTop: 0}}
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}
+          scrollEnabled={false}
+          scrollEnabled = {false}
         />
       </View>
     );

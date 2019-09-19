@@ -27,24 +27,7 @@ var isIPhoneXR = (width == 414) && (height == 896);
 //
 var IPHONEX = isIPhoneX || isIPhoneXSMax || isIPhoneXR;
 
-export default class HKTabBar extends Component {
-
-    // static pr = {
-    //     tabNames:[],
-    //     tabIconNames:[],
-    //     tabIconSelectedNames:[]
-    // };
-
-    // constructor(props) {
-    //     super(props);
-    //     this.state =
-    //         {
-    //             tabNames: [],
-    //             tabIconNames: [],
-    //             tabIconSelectedNames: []
-    //         };
-    // }
-
+export default class APEXTabbar extends Component {
     render() {
         return (
             <View style={styles.tabsStyle}>
@@ -58,7 +41,6 @@ export default class HKTabBar extends Component {
         //判断i是否是当前选中的tab!!
         const color = this.props.activeTab == i ? "#387CFE" : "#CDD5DF";
         const CurrentImags = this.props.activeTab == i ? this.props.tabIconSelectedNames : this.props.tabIconNames;
-
         return (
             <TouchableOpacity
                 activeOpacity={1}

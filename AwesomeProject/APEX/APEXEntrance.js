@@ -21,7 +21,9 @@ import ScrollableTabView, { DefaultTabBar, ScrollableTabBar } from 'react-native
 //自定义TabBar
 import APEXTabbar from './APEXTabbar'
 import Home from "./Home/Home";
-
+import News from "./News/News"
+import { APEXWebView } from "./Home/APEXWebView";
+import SlideBar from "./Home/slidebar";
 
 var Arr = ['我的账户', '转账汇款', '投资理财', '余额理财', '工商e支付', '手机充值', 'e缴费', '信用卡', '注册账户转账', '贷款', '融e购', '融e联', 'Apple Pay'];
 var ImageArr = [require('./image/1.jpeg'), require('./image/2.jpeg'), require('./image/3.jpeg'), require('./image/4.jpeg'), require('./image/5.jpeg')];
@@ -34,13 +36,16 @@ var isIPhoneXSMax = (width == 414) && (height == 896);
 var isIPhoneXR = (width == 414) && (height == 896);
 //
 var IPHONEX = isIPhoneX || isIPhoneXSMax || isIPhoneXR;
+var obj = this;
 
 export default class MyAnimated extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = {
-      openType: false
+      openType: false,
+      page: 0
     };
   }
   //接收子组件传来的数据改变openType状态，刷新UI
@@ -49,14 +54,45 @@ export default class MyAnimated extends Component {
       openType: openType
     });
   }
+  // slideClick(index) {
+  //   alert(index + '000');
+
+  //   this.setState({
+  //     openType: false,
+  //     page:2,
+  //   });
+  //   // alert(index);
+  // }
+
+  slideClick = (index) => {
+    this.setState({
+      openType: false,
+      page: index,
+    });
+  }
+
   //侧拉的实现方式
   render() {
     return (
       <View style={styles.container}>
         <Drawer type='overlay'
           side='left'
-          content={<LeftVC />} //左侧拉的页面
+          content={<SlideBar
+            // 函数回调的三种方式
+            // 1.
+            // cellClick={() => {
+            //   this.setState({
+            //     openType: false
+            //   });
+            // }} />} //左侧拉的页面  //闭包 回掉 传递函数 block
+
+            // 2.
+            // cellClick={this.slideClick} />}
+            // 3.
+            cellClick={this.slideClick.bind(this)} />}
+
           tapToClose={true}
+          acceptTap={true}
           panOpenMask={0.2}
           panDrawerOffset={0.2}
           panCloseMask={0.2}
@@ -64,7 +100,15 @@ export default class MyAnimated extends Component {
           open={this.state.openType}
           style={drawerStyles}
           tweenHandler={(ratio) => ({ main: { opacity: (2 - ratio) / 2 } })}>
-          <Main LeftClicked={this.LeftClicked.bind(this)} />
+          <Main LeftClicked={this.LeftClicked.bind(this)}
+            page={this.state.page}
+            selectBack={(index) => {
+              this.setState({
+                page: index,
+                openType: false,
+              })
+            }}
+          />
         </Drawer>
       </View>
     );
@@ -75,7 +119,13 @@ class LeftVC extends Component {
   render() {
     return (
       <View style={{ flex: 1, }}>
-        <View style={{ width: width - 100, height: 64, backgroundColor: '#3893C9', alignItems: 'center' }}></View>
+        <View style={
+          {
+            width: width - 100,
+            height: 64,
+            backgroundColor: '#3893C9',
+            alignItems: 'center'
+          }}></View>
         <View style={{ width: width - 100, backgroundColor: 'white', flex: 1 }}>
           <View style={{
             height: 40,
@@ -96,6 +146,7 @@ class LeftVC extends Component {
     );
   }
 }
+
 // 首页代码列表
 class Main extends Component {
 
@@ -124,7 +175,7 @@ class Main extends Component {
     return (
       <View style={{ width: width, height: height }}>
         <ScrollableTabView
-          style={{ width: width, height: height - 500 }}
+          style={{ width: width, height: height }}
           renderTabBar={() => <APEXTabbar
             // ScrollableTabBar   DefaultTabBar  APEXTabbar
 
@@ -145,10 +196,17 @@ class Main extends Component {
             (obj) => {
               console.log('切换到了' + obj.i + '个');
               // alert(obj.i.toString());
+              if(this.props.selectBack){
+                this.props.selectBack(obj.i);
+              }
             }
           }
           // 初始化时被选中的下标，默认为0
+          page={this.props.page}
           initialPage={0}
+
+
+
 
           // 视图滑动时调用
           onScroll={
@@ -158,29 +216,51 @@ class Main extends Component {
             }
           }
           //锁住滚动
-          locked={true}
+          locked={false}
+          scrollWithoutAnimation={true}
+
 
           // tabBarBackgroundColor:整个tabBar的背景颜色。
-          tabBarBackgroundColor={"red"}
+          // tabBarBackgroundColor={"red"}
 
           // tabBarActiveTextColor/tabBarInactiveTextColor: 选中/未选中的tabBar的文字颜色
           tabBarActiveTextColor={"387CFE"}  //选中tabBar的文字颜色
           tabBarInactiveTextColor={"white"}  //未选中tabBar的文字颜色
-
+          // tabBarPosition={"top"}
           // 提供一个object对象的参数，用于设置文字的样式，如字体字号
           tabBarTextStyle={
-            { fontSize: 10 }
+            {
+              fontSize: 15,
+              height: 19,
+              overflow: "hidden"
+              // display: "none"
+            }
           }
+          tabBarStyle={{ height: this.state.tabBarHeight, overflow: 'hidden' }}
+          sceneStyle={{ paddingBottom: this.state.tabBarHeight }}
         >
           <Navigator
             tabLabel="Home"
             initialRoute={{
               component: Home,
+              gesturesEnabled: false,
               params: {
                 title: 'Home',
                 callBack: function () {
                   // obj.props.nav.pop();
                   obj.LeftClicked();
+                },  //闭包 回掉 传递函数 block
+                newsClickCallBack: function () {
+                  alert(obj.toString());
+                  // obj.props.nav.push({
+                  //   component: APEXEntrance,
+                  // });
+                  // obj.props.nav.push({
+                  //   component: APEXWebView,
+                  //   params: {
+                  //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
+                  //   }
+                  // });
                 }
               }
             }}
@@ -193,8 +273,23 @@ class Main extends Component {
             initialRoute={{
               component: Home,
               params: {
-                title: '我的Navigator'
-
+                title: 'Home',
+                callBack: function () {
+                  // obj.props.nav.pop();
+                  obj.LeftClicked();
+                },  //闭包 回掉 传递函数 block
+                newsClickCallBack: function () {
+                  alert(obj.toString());
+                  // obj.props.nav.push({
+                  //   component: APEXEntrance,
+                  // });
+                  // obj.props.nav.push({
+                  //   component: APEXWebView,
+                  //   params: {
+                  //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
+                  //   }
+                  // });
+                }
               }
             }}
             renderScene={(route, navigator) =>
@@ -204,9 +299,25 @@ class Main extends Component {
           <Navigator
             tabLabel="News"
             initialRoute={{
-              component: Home,
+              component: News,
               params: {
-                title: '发现 Navigator'
+                title: 'News',
+                callBack: function () {
+                  // obj.props.nav.pop();
+                  obj.LeftClicked();
+                },  //闭包 回掉 传递函数 block
+                newsClickCallBack: function () {
+                  alert(obj.toString());
+                  // obj.props.nav.push({
+                  //   component: APEXEntrance,
+                  // });
+                  // obj.props.nav.push({
+                  //   component: APEXWebView,
+                  //   params: {
+                  //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
+                  //   }
+                  // });
+                }
               }
             }}
             renderScene={(route, navigator) =>
@@ -218,7 +329,23 @@ class Main extends Component {
             initialRoute={{
               component: Home,
               params: {
-                title: '消息 Navigator'
+                title: 'Home',
+                callBack: function () {
+                  // obj.props.nav.pop();
+                  obj.LeftClicked();
+                },  //闭包 回掉 传递函数 block
+                newsClickCallBack: function () {
+                  alert(obj.toString());
+                  // obj.props.nav.push({
+                  //   component: APEXEntrance,
+                  // });
+                  // obj.props.nav.push({
+                  //   component: APEXWebView,
+                  //   params: {
+                  //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
+                  //   }
+                  // });
+                }
               }
             }}
             renderScene={(route, navigator) =>

@@ -21,6 +21,8 @@ type Props = {};
 var Dimensions = require('Dimensions');
 var SCREENWIDTH = Dimensions.get('window').width;
 var SCREENHEIGHT = Dimensions.get('window').height;
+var width = Dimensions.get('window').width;
+var height = Dimensions.get('window').height;
 var isIPhoneX = (width == 375) && (height == 812);
 // iPhone XS Max
 var isIPhoneXSMax = (width == 414) && (height == 896);

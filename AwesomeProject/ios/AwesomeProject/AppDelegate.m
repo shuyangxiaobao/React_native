@@ -17,7 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   
-  
+  //走的是js代码
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"AwesomeProject"
@@ -26,7 +26,7 @@
   
   
   
-  
+//  走的是打好的js包
 //  NSURL *jsCodeLocation;
 //
 //  // jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
@@ -35,6 +35,7 @@
 //                                                      moduleName:@"AwesomeProject"
 //                                               initialProperties:nil
 //                                                   launchOptions:launchOptions];
+  
 
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
@@ -59,18 +60,15 @@
   self.window.rootViewController = _nav;
   [self.window makeKeyAndVisible];
   
-  
-  
-  
-  
-  
-  
-  
+
   return YES;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
+  
+//  return [[NSBundle mainBundle] URLForResource:@"index.ios" withExtension:@"jsbundle"];
+
 #if DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 #else

@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
@@ -19,7 +19,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {
-    Navigator,
+  Navigator,
 } from "react-native-deprecated-custom-components";
 
 var Dimensions = require('Dimensions');
@@ -132,7 +132,7 @@ export default class App extends Component<Props> {
   constructor(props) {
     super(props);
     // var ds = new ListView.dataSource({rowHasChanged:(r1,r2)=>r1 !== r2});
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
     this.state = {
       dataSource: ds.cloneWithRows(Heros),
@@ -149,65 +149,114 @@ export default class App extends Component<Props> {
     );
   }
 
-//   render() {
-//     return (
-//       <ListView
-//         style={{marginTop: 64}}
-//         dataSource={this.state.dataSource}
-//         renderRow={this.renderRow.bind(this)}
-//       />
-//     );
-//   }
+  //   render() {
+  //     return (
+  //       <ListView
+  //         style={{marginTop: 64}}
+  //         dataSource={this.state.dataSource}
+  //         renderRow={this.renderRow.bind(this)}
+  //       />
+  //     );
+  //   }
 
 
 
   render() {
+    const NoBackSwipe = {
+      ...Navigator.SceneConfigs.HorizontalSwipeJump,
+      gestures: {
+        pop: {},
+      }
+    };
+
+    // configureScene(route, routeStack){
+    //   let configure = Navigator.SceneConfigs.PushFromRight;
+    //   switch (route.configure) {
+    //     case Consts.FloatFromLeft:
+    //       configure = Navigator.SceneConfigs.FloatFromLeft;
+    //       break;
+    //     case Consts.FloatFromBottom:
+    //       configure = Navigator.SceneConfigs.FloatFromBottom;
+    //       break;
+    //   }
+    //   // return {
+    //   //   ...configure,
+    //   //   gestures: {}//或者改成null 
+    //   // };
+    // };
     return (
-        <Navigator
-            initialRoute={{
-                component:Entrance,
-                // component:Demo17,
-                // component:CHOUTI,
-                name:"第一个name",
-                params:{
-                  title:'第一个视图',
-                    haha:'哈哈',
-                    hehe:'呵呵',
-                    heihei:'嘿嘿',
-                    name:"多参传值name"  
-                }
-            }}
-            //渲染场景
-            // route 就是上面的路由
-            renderScene={(route, navigator) =>
-                <route.component {...route.params} nav={navigator} name={route.name} />
-            }
-            // name={route.name}
-// 顺传赋值时用name，取值时用namegqb
+      <Navigator
+        initialRoute={{
+          component: Entrance,
+          // component:Demo17,
+          // component:CHOUTI,
+          name: "第一个name",
+          // configure: NoBackSwipe,
+          params: {
+            title: '第一个视图',
+            haha: '哈哈',
+            hehe: '呵呵',
+            heihei: '嘿嘿',
+            name: "多参传值name"
+          }
+        }}
+        //渲染场景
+        // route 就是上面的路由
+        renderScene={(route, navigator) =>
+          <route.component {...route.params} nav={navigator} name={route.name} />
+        }
+        // name={route.name}
+        // 顺传赋值时用name，取值时用namegqb
 
-    // 配置场景
-            configureScene={()=>
-                Navigator.SceneConfigs.HorizontalSwipeJump
-            }
-                // Navigator.SceneConfigs.PushFromRight (默认)
-                // Navigator.SceneConfigs.FloatFromRight
-                // Navigator.SceneConfigs.FloatFromLeft
-                // Navigator.SceneConfigs.FloatFromBottom
-                // Navigator.SceneConfigs.FloatFromBottomAndroid
-                // Navigator.SceneConfigs.FadeAndroid
-                // Navigator.SceneConfigs.HorizontalSwipeJump
-                // Navigator.SceneConfigs.HorizontalSwipeJumpFromRight
-                // Navigator.SceneConfigs.VerticalUpSwipeJump
-                // Navigator.SceneConfigs.VerticalDownSwipeJump
-        />
+        // 配置场景
+        configureScene={()=>
+            Navigator.SceneConfigs.PushFromRight
+        }
+
+        // configureScene={(route, routeStack) => {
+        //   return NoBackSwipe
+        // }} //禁用手势返回
+
+        // configureScene={(route, routeStack) => {
+        //   let configure = Navigator.SceneConfigs.PushFromRight;
+        //   // console.log(route.configure + "23423");
+        //   // switch (route.configure) {
+        //   //   case Consts.FloatFromLeft:
+        //   //     configure = Navigator.SceneConfigs.FloatFromLeft;
+        //   //     break;
+        //   //   case Consts.FloatFromBottom:
+        //   //     configure = Navigator.SceneConfigs.FloatFromBottom;
+        //   //     break;
+        //   // }
+        //   return {
+        //     ...configure,
+        //     gestures: {}//或者改成null 
+        //   };
+        // }}
+
+
+
+
+
+      // Navigator.SceneConfigs.PushFromRight (默认)
+      // Navigator.SceneConfigs.FloatFromRight
+      // Navigator.SceneConfigs.FloatFromLeft
+      // Navigator.SceneConfigs.FloatFromBottom
+      // Navigator.SceneConfigs.FloatFromBottomAndroid
+      // Navigator.SceneConfigs.FadeAndroid
+      // Navigator.SceneConfigs.HorizontalSwipeJump
+      // Navigator.SceneConfigs.HorizontalSwipeJumpFromRight
+      // Navigator.SceneConfigs.VerticalUpSwipeJump
+      // Navigator.SceneConfigs.VerticalDownSwipeJump
+      />
     );
-}
+  }
 
 
 
 
 
-  
+
 }
 
 const styles = StyleSheet.create({
