@@ -57,7 +57,7 @@ export default class APEXTabbar extends Component {
 
                     />
                     {/*文字*/}
-                    <Text style={{ color: color, top: 4, fontSize: 11 }}>{this.props.tabNames[i]}</Text>
+                    <Text style={{ color: color, top: 4, fontSize: 11, }}>{this.props.tabNames[i]}</Text>
                 </View>
             </TouchableOpacity>
         )

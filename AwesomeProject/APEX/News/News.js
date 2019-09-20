@@ -39,6 +39,13 @@ var IPHONEX = isIPhoneX || isIPhoneXSMax || isIPhoneXR;
 
 import Home from "../Home/Home"
 import NewsTabbar from "./newsTabbar"
+import NewsNews from "./newsNews"
+import NewsAnnouncement from "./newsAnnouncement"
+import NewsVideo from "./NewsVideo"
+import NewsResearch from "./NewsResearch"
+import VideoPlayer from "./VideoPlayer"
+
+import APEXWebView from "../Home/APEXWebView.js"
 
 export default class NewsPage extends Component<Props> {
 
@@ -162,33 +169,29 @@ export default class NewsPage extends Component<Props> {
                     tabBarStyle={{ height: this.state.tabBarHeight, overflow: 'hidden' }}
                     sceneStyle={{ paddingBottom: this.state.tabBarHeight }}
                     tabBarUnderlineStyle={{
-                        height:2,
-                        backgroundColor:"#387CFE"
+                        height: 2,
+                        backgroundColor: "#387CFE"
                     }}
-                    
+
                 >
                     <Navigator
                         tabLabel="Home"
                         initialRoute={{
-                            component: Home,
+                            component: NewsNews,
                             gesturesEnabled: false,
                             params: {
-                                title: 'Home',
+                                title: '',
                                 callBack: function () {
                                     // obj.props.nav.pop();
                                     obj.LeftClicked();
                                 },  //闭包 回掉 传递函数 block
-                                newsClickCallBack: function () {
-                                    alert(obj.toString());
-                                    // obj.props.nav.push({
-                                    //   component: APEXEntrance,
-                                    // });
-                                    // obj.props.nav.push({
-                                    //   component: APEXWebView,
-                                    //   params: {
-                                    //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
-                                    //   }
-                                    // });
+                                newsClickCallBack: function (url) {
+                                    obj.props.nav.push({
+                                        component: APEXWebView,
+                                        params: {
+                                            url: url
+                                        }
+                                    });
                                 }
                             }
                         }}
@@ -197,26 +200,22 @@ export default class NewsPage extends Component<Props> {
                         }
                     />
                     <Navigator
-                        tabLabel="Data"
+                        tabLabel=""
                         initialRoute={{
-                            component: Home,
+                            component: NewsAnnouncement,
                             params: {
-                                title: 'Home',
+                                title: '',
                                 callBack: function () {
                                     // obj.props.nav.pop();
                                     obj.LeftClicked();
                                 },  //闭包 回掉 传递函数 block
-                                newsClickCallBack: function () {
-                                    alert(obj.toString());
-                                    // obj.props.nav.push({
-                                    //   component: APEXEntrance,
-                                    // });
-                                    // obj.props.nav.push({
-                                    //   component: APEXWebView,
-                                    //   params: {
-                                    //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
-                                    //   }
-                                    // });
+                                newsClickCallBack: function (url) {
+                                    obj.props.nav.push({
+                                        component: APEXWebView,
+                                        params: {
+                                            url: url
+                                        }
+                                    });
                                 }
                             }
                         }}
@@ -227,24 +226,21 @@ export default class NewsPage extends Component<Props> {
                     <Navigator
                         tabLabel="News"
                         initialRoute={{
-                            component: Home,
+                            component: NewsVideo,
                             params: {
-                                title: 'News',
+                                title: '',
                                 callBack: function () {
                                     // obj.props.nav.pop();
                                     obj.LeftClicked();
                                 },  //闭包 回掉 传递函数 block
-                                newsClickCallBack: function () {
-                                    alert(obj.toString());
-                                    // obj.props.nav.push({
-                                    //   component: APEXEntrance,
-                                    // });
-                                    // obj.props.nav.push({
-                                    //   component: APEXWebView,
-                                    //   params: {
-                                    //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
-                                    //   }
-                                    // });
+                                newsClickCallBack: function (url) {
+                                    obj.props.nav.push({
+                                        component: VideoPlayer,
+                                        // component: APEXWebView,
+                                        params: {
+                                            url: url
+                                        }
+                                    });
                                 }
                             }
                         }}
@@ -253,26 +249,22 @@ export default class NewsPage extends Component<Props> {
                         }
                     />
                     <Navigator
-                        tabLabel="Productions"
+                        tabLabel=""
                         initialRoute={{
-                            component: Home,
+                            component: NewsResearch,
                             params: {
-                                title: 'Home',
+                                title: '',
                                 callBack: function () {
                                     // obj.props.nav.pop();
                                     obj.LeftClicked();
                                 },  //闭包 回掉 传递函数 block
-                                newsClickCallBack: function () {
-                                    alert(obj.toString());
-                                    // obj.props.nav.push({
-                                    //   component: APEXEntrance,
-                                    // });
-                                    // obj.props.nav.push({
-                                    //   component: APEXWebView,
-                                    //   params: {
-                                    //     url: this.state.baseIP + rowData.htmlFive + "?id=" + rowData.id,
-                                    //   }
-                                    // });
+                                newsClickCallBack: function (url) {
+                                    obj.props.nav.push({
+                                        component: APEXWebView,
+                                        params: {
+                                            url: url
+                                        }
+                                    });
                                 }
                             }
                         }}

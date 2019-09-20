@@ -121,11 +121,11 @@ const styles = StyleSheet.create({
     },
     imgeStyle: {
         position: "absolute",
-        backgroundColor:"#ffff90",
+        // backgroundColor:"#ffff90",
         bottom: 6,
         left: 0,
         width: 60,
-        height: 30,
+        height: 25,
         resizeMode: "contain" //contain,cover,repeat,stretch
 
     }

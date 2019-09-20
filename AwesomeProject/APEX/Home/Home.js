@@ -40,7 +40,7 @@ import ScrollAdvert from './ScrollAdvert'
 import Market from "./market"
 import APEXWebView from "./APEXWebView"
 
-var data = ['轮播', 'market'];
+var _data = ['轮播', 'market'];
 var staticData = ['轮播', 'market'];
 // var newsData = require('../Json/news.json')
 function getAutoWidth(size) {
@@ -58,9 +58,9 @@ export default class Home extends Component {
             {
                 switchstate: true,
                 obj: null,
-                dataSource: ds.cloneWithRows(data),
+                dataSource: ds.cloneWithRows(_data),
                 base_url: "http://mapp.asiapacificex.com/mobile/data/query?businessType=2&pageNum=1&pageSize=10",
-                "baseIP": "http://129.226.152.177:8060"
+                "baseIP": "http://mapp.asiapacificex.com"
             };
     }
     onPress() {
@@ -115,7 +115,7 @@ export default class Home extends Component {
             // style={{width:width,height:200}}
             >
                 <View style={styles.cellStyle}>
-                    <Text style={styles.cellTextStyle}>{rowData.title}</Text>
+                    <Text style={styles.cellTextStyle} numberOfLines={2}>{rowData.title}</Text>
                     <Text style={styles.timeStyle}>{this.functiontimetrans(rowData.createDate)}</Text>
                     <Text style={styles.browseStyle}>{rowData.browseNum}浏览</Text>
                 </View>
@@ -146,18 +146,18 @@ export default class Home extends Component {
 
     //网络请求发送
     loadData() {
-        let fetchOptions = {
-            method: 'GET',
-            // headers: {
-            //     'Accept': 'application/json',
-            //     'Content-Type': 'application/json',
-            // },
-            body: JSON.stringify({
-                businessType: '2',
-                pageNum: '1',
-                pageSize: "10"
-            })
-        };
+        // let fetchOptions = {
+        //     method: 'GET',
+        //     // headers: {
+        //     //     'Accept': 'application/json',
+        //     //     'Content-Type': 'application/json',
+        //     // },
+        //     body: JSON.stringify({
+        //         businessType: '2',
+        //         pageNum: '1',
+        //         pageSize: "10"
+        //     })
+        // };
 
 
 
@@ -273,11 +273,13 @@ const styles = StyleSheet.create({
         top: 19,
         left: 15,
         right: 15,
-        height: 48,
-        // lineHeight: 68,
+        height: 50,
         color: "#ffffff",
         textAlign: "left",
         lineHeight: 24,
+        overflow:"scroll",
+        alignContent:"flex-start"
+
     },
     lineStyle: {
         position: "absolute",

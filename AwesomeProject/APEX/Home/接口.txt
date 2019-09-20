@@ -10,3 +10,11 @@ http://mapp.asiapacificex.com/mobile/data/query
     pageNum = 1;
     pageSize = 10;
 }
+
+
+video
+http://mapp.asiapacificex.com/mobile/videos/query
+{
+    pageNum = 1;
+    pageSize = 5;
+}
