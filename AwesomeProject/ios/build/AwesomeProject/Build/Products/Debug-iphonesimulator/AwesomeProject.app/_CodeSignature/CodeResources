@@ -14,11 +14,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		54FS75ChgcHjnbOYSpgsHM+v/DY=
+		nCzgyig4rwxgQJ1vlprQX/BEuuU=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		bcfSFDDeelebhz1o5wy28aoTOvQ=
+		Uhgxnv+pU1l812EGkAtBnHzP55M=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/AFNetworking.framework/AFNetworking</key>
 		<data>
-		n1cNMsI5UOm08m1MGiaFeH6gDpQ=
+		zUeoX53fm4VK8gu2qsyzq7u5lo4=
 		</data>
 		<key>Frameworks/AFNetworking.framework/Info.plist</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/Masonry.framework/Masonry</key>
 		<data>
-		rS3J2JjK6Fo+ispHMtLrKOMHBOo=
+		wWo9cEy7UcZmqjGHR6xVmkY7akg=
 		</data>
 		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Frameworks/SDWebImage.framework/SDWebImage</key>
 		<data>
-		Ikqh4c0RQ+ARGQIB/tmZKGfjAPs=
+		NW5Yqa8lHHU5RZbmfZohRYnxfkk=
 		</data>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -183,7 +183,7 @@
 		</data>
 		<key>PlugIns/AwesomeProjectTests.xctest/AwesomeProjectTests</key>
 		<data>
-		4YCICaGRLy5dn4QWGf9fgmyhXUI=
+		X/vZfY5xCpPhoe9oykz4Cl/OfH0=
 		</data>
 		<key>PlugIns/AwesomeProjectTests.xctest/Info.plist</key>
 		<data>
@@ -199,11 +199,11 @@
 		</data>
 		<key>TestController.nib/objects-11.0+.nib</key>
 		<data>
-		s/jZv89PobsYFoNAiUYnxY5x1p4=
+		S39sWuZ43Q1MWR7ydhHzxn3DZKM=
 		</data>
 		<key>TestController.nib/runtime.nib</key>
 		<data>
-		UTzqZIEoXJ2xxPM7gM6LX5eUP34=
+		5LQXaI/VykH0PL1iRYIcLI8P06M=
 		</data>
 		<key>Zocial.ttf</key>
 		<data>
@@ -255,7 +255,7 @@
 		</data>
 		<key>index.ios.jsbundle</key>
 		<data>
-		vs6wDx1upruvNGfTdBRN5g4B1IQ=
+		7IV6QWyak04xOUKY9kPO5plE0A0=
 		</data>
 		<key>next@2x.png</key>
 		<data>
@@ -314,22 +314,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			54FS75ChgcHjnbOYSpgsHM+v/DY=
+			nCzgyig4rwxgQJ1vlprQX/BEuuU=
 			</data>
 			<key>hash2</key>
 			<data>
-			0HkgrocAYxMY7m2VrkMPwYUvVz9Fsgai8BkcZYKO8L0=
+			hlNSz0bXdb3FGD2mBm/eK9owWs0C1cAh0JH4VlO07Ls=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bcfSFDDeelebhz1o5wy28aoTOvQ=
+			Uhgxnv+pU1l812EGkAtBnHzP55M=
 			</data>
 			<key>hash2</key>
 			<data>
-			0ea1QqXyDN+CTP7zOBbo5ro96oS0rBmpoDJ+MseoE4o=
+			a5fnaGgZoBo9a1jNPhHmib4dDc708Mb6g0MyckL7yuA=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -424,11 +424,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			n1cNMsI5UOm08m1MGiaFeH6gDpQ=
+			zUeoX53fm4VK8gu2qsyzq7u5lo4=
 			</data>
 			<key>hash2</key>
 			<data>
-			OKDy/7qeOW51m6X24pgfSC8KXHCaBztnYvWStrSlH9A=
+			86tgLvOtKcdqlMgy4BN7T8EJsCKwjwUvTZJYO0cgbDA=
 			</data>
 		</dict>
 		<key>Frameworks/AFNetworking.framework/Info.plist</key>
@@ -468,11 +468,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rS3J2JjK6Fo+ispHMtLrKOMHBOo=
+			wWo9cEy7UcZmqjGHR6xVmkY7akg=
 			</data>
 			<key>hash2</key>
 			<data>
-			IItqflI5nmdIdsCDHkqAEyoPqLi6qkBHSUsugIZyXIQ=
+			8TazPILZft+RLVp01cjyx/I905oLeh6oe63nP21W/3E=
 			</data>
 		</dict>
 		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
@@ -501,11 +501,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ikqh4c0RQ+ARGQIB/tmZKGfjAPs=
+			NW5Yqa8lHHU5RZbmfZohRYnxfkk=
 			</data>
 			<key>hash2</key>
 			<data>
-			h5+uP9uU2oTSD5aHke5Htshb+r7N2Lnw7SmAOx5Hph0=
+			AN5mSu+1se8CPS5Lij2z4sobW5OdKtZeKKzrp88/F08=
 			</data>
 		</dict>
 		<key>Frameworks/SDWebImage.framework/_CodeSignature/CodeResources</key>
@@ -745,11 +745,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4YCICaGRLy5dn4QWGf9fgmyhXUI=
+			X/vZfY5xCpPhoe9oykz4Cl/OfH0=
 			</data>
 			<key>hash2</key>
 			<data>
-			RLo84sVNcxLjfCmAt18SIoxbo2B/4c8U8Mh3bPwIIrU=
+			NikTmahhNAi+ZtyzZMSmRcibnSuvM/xd7Su64OOkrr0=
 			</data>
 		</dict>
 		<key>PlugIns/AwesomeProjectTests.xctest/Info.plist</key>
@@ -789,22 +789,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s/jZv89PobsYFoNAiUYnxY5x1p4=
+			S39sWuZ43Q1MWR7ydhHzxn3DZKM=
 			</data>
 			<key>hash2</key>
 			<data>
-			a19pHUf8a+SigBEkb17hnqVeZBh9lBbJtC6RiW60yxc=
+			MtMoQeDjI68rRZrBEINRrvbr3yXlks1X994KLs63sw8=
 			</data>
 		</dict>
 		<key>TestController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UTzqZIEoXJ2xxPM7gM6LX5eUP34=
+			5LQXaI/VykH0PL1iRYIcLI8P06M=
 			</data>
 			<key>hash2</key>
 			<data>
-			ihtpHp6aOc/NiKQ4cvC8JJdltdP4wOFn/m8l8TBnDQk=
+			aVAVR+DjWYi6BBIuFQpLpsFqsDaH4r9uAoKmMIGQX9E=
 			</data>
 		</dict>
 		<key>Zocial.ttf</key>
@@ -943,11 +943,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vs6wDx1upruvNGfTdBRN5g4B1IQ=
+			7IV6QWyak04xOUKY9kPO5plE0A0=
 			</data>
 			<key>hash2</key>
 			<data>
-			N+tLinJt08HMFeUHsGAFHtjtYzLBuHO3FJHqms9mqe8=
+			5EAq5QS+L12nEPPZQFTljVunUFK0io/j5ARPZcD2F+o=
 			</data>
 		</dict>
 		<key>next@2x.png</key>

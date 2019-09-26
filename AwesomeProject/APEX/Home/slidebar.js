@@ -38,11 +38,11 @@ var slideJson = require('../Json/slidebar.json').data;
 var slideImageArr = [require("../image/slide/home.png"),
                      require('../image/slide/data.png'),
                      require('../image/slide/news.png'),
-                     require('../image/slide/s-trade.png'),
+                    //  require('../image/slide/s-trade.png'),
                      require('../image/slide/products.png'),
-                     require('../image/slide/regulations.png'),
-                     require('../image/slide/aboutus.png'),
-                     require('../image/slide/setting.png'),
+                    //  require('../image/slide/regulations.png'),
+                    //  require('../image/slide/aboutus.png'),
+                    //  require('../image/slide/setting.png'),
                 ];
 
 export default class SlideBar extends Component<Props> {

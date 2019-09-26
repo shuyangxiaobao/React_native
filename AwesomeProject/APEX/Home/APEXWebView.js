@@ -66,15 +66,6 @@ export default class APEXWebView extends Component<Props> {
                         <Image source={require('../image/back.png')} style={styles.imgeStyle}>
                         </Image>
                     </TouchableOpacity>
-                    {/* <Text style={styles.homeStyle}>
-                        {this.props.title}
-                    </Text> */}
-                    <TouchableHighlight style={styles.touchStyle}
-                    // onPress={() => this.onPress()}
-                    >
-                        <Image source={{ uri: "Message" }} style={styles.imgeStyle}>
-                        </Image>
-                    </TouchableHighlight>
                 </View>
                 <WebView
                     style={styles.webviewStyle}
@@ -113,7 +104,7 @@ const styles = StyleSheet.create({
     },
     webviewStyle: {
         width: width,
-        height: IPHONEX ? height - 88-34-49 : height-64-49,
+        height: IPHONEX ? (height - 88-34-49) : (height-64-49),
         position: "absolute",
         top: IPHONEX ? 88 : 64,
         left:0,
@@ -127,8 +118,14 @@ const styles = StyleSheet.create({
         width: 60,
         height: 25,
         resizeMode: "contain" //contain,cover,repeat,stretch
-
-    }
+    },
+    touchStyle: {
+        top: IPHONEX ? 58 : 34,
+        left: 0,
+        width: 54,
+        height: 30,
+        // backgroundColor: "#ffff00"
+    },
 
 })
 

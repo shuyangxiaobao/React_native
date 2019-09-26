@@ -36,7 +36,7 @@ var isIPhoneXSMax = (width == 414) && (height == 896);
 var isIPhoneXR = (width == 414) && (height == 896);
 //
 var IPHONEX = isIPhoneX || isIPhoneXSMax || isIPhoneXR;
-var _data = [];
+var _data = ["12"];
 import { Tool } from "../Tool/tool"
 import APEXWebView from "../Home/APEXWebView"
 
@@ -57,10 +57,7 @@ export default class NewsVideo extends Component<Props> {
                 dataSource: ds.cloneWithRows(_data),
                 // base_url: "http://mapp.asiapacificex.com/mobile/videos/query?pageNum=1&pageSize=5",
                 "baseIP": "http://mapp.asiapacificex.com",
-                base_url: "http://129.226.152.177:8060/mobile/videos/query?pageNum=1&pageSize=5",
-
-
-
+                base_url: "http://mapp.asiapacificex.com/mobile/videos/query?pageNum=1&pageSize=5",
             };
     }
 

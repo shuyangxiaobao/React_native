@@ -24,6 +24,7 @@ import Home from "./Home/Home";
 import News from "./News/News"
 import { APEXWebView } from "./Home/APEXWebView";
 import SlideBar from "./Home/slidebar";
+import Me from "./Me/Me"
 
 var Arr = ['我的账户', '转账汇款', '投资理财', '余额理财', '工商e支付', '手机充值', 'e缴费', '信用卡', '注册账户转账', '贷款', '融e购', '融e联', 'Apple Pay'];
 var ImageArr = [require('./image/1.jpeg'), require('./image/2.jpeg'), require('./image/3.jpeg'), require('./image/4.jpeg'), require('./image/5.jpeg')];
@@ -157,7 +158,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabNames: ['Home', "Data", "News", "Products"],
+      tabNames: ['Home', "Data", "News", "Me"],
       normalIcons: ["home", "data", "news", "products"],
       selectIcons: ["home-Click", "data-Click", "news-Click", "products-Click"],
     }
@@ -187,8 +188,6 @@ class Main extends Component {
           // tabbar 位置  bottom  top
           // top(放在界面上方)、bottom(放在界面底部)、overlayTop(有悬浮效果在上方)、overlayBottom(有悬浮效果在下方)
           tabBarPosition="bottom"
-          //切换动画效果
-          scrollWithoutAnimation={true}
           //常用属性
 
           // :切换界面的时候会调用该方法，
@@ -216,7 +215,8 @@ class Main extends Component {
             }
           }
           //锁住滚动
-          locked={false}
+          locked={true}
+          // 切换动画效果
           scrollWithoutAnimation={true}
 
 
@@ -327,9 +327,9 @@ class Main extends Component {
           <Navigator
             tabLabel="Productions"
             initialRoute={{
-              component: Home,
+              component: Me,
               params: {
-                title: 'Home',
+                title: 'Me',
                 callBack: function () {
                   // obj.props.nav.pop();
                   obj.LeftClicked();

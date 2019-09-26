@@ -51,9 +51,6 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         var ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        // for (const item in newsData.data) {
-        //     data.push(newsData.data[item])
-        // }
         this.state =
             {
                 switchstate: true,
@@ -146,21 +143,6 @@ export default class Home extends Component {
 
     //网络请求发送
     loadData() {
-        // let fetchOptions = {
-        //     method: 'GET',
-        //     // headers: {
-        //     //     'Accept': 'application/json',
-        //     //     'Content-Type': 'application/json',
-        //     // },
-        //     body: JSON.stringify({
-        //         businessType: '2',
-        //         pageNum: '1',
-        //         pageSize: "10"
-        //     })
-        // };
-
-
-
         fetch(this.state.base_url).then
             ((response) => response.json())
             .then((responseJson) => {

@@ -56,10 +56,10 @@ export default class SWitch8 extends Component<Props> {
     }
 
     click(value){
-        console.log(value.toString());
-        if (value){
-            AlertIOS.alert(value.toString());
-        }
+        // console.log(value.toString());
+        // if (value){
+        //     AlertIOS.alert(value.toString());
+        // }
         this.setState({
             switchstate:value
         })

@@ -14,23 +14,7 @@
         },
         {
             "img": "img_01",
-            "title": "Trade"
-        },
-        {
-            "img": "img_01",
-            "title": "Products"
-        },
-        {
-            "img": "img_01",
-            "title": "Regulations"
-        },
-        {
-            "img": "img_01",
-            "title": "About Us"
-        },
-        {
-            "img": "img_01",
-            "title": "Settings"
+            "title": "Me"
         }
     ]
 }

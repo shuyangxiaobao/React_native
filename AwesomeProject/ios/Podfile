@@ -15,6 +15,10 @@ target 'AwesomeProject' do
   target 'AwesomeProject-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+
+    pod 'react-native-video', :path => '../node_modules/react-native-video'
+
   end
 
   target 'AwesomeProjectTests' do
